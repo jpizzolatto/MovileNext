@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lz6-s2-g2U">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movile Next-->
+        <scene sceneID="YYT-69-AvH">
+            <objects>
+                <viewController id="0rd-p2-6ZT" customClass="EpisodeViewController" customModule="MovileNext" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CX2-c7-yPf"/>
+                        <viewControllerLayoutGuide type="bottom" id="rZJ-aN-mRV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bHj-hX-83E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMR-Y4-mcV">
+                                <rect key="frame" x="16" y="231" width="343" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgH-C2-fTG">
+                                <rect key="frame" x="16" y="306" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIv-rX-Zo7">
+                                <rect key="frame" x="16" y="335" width="343" height="312"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhS-rj-SYW">
+                                <rect key="frame" x="0.0" y="65" width="375" height="234"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oIv-rX-Zo7" firstAttribute="leading" secondItem="bHj-hX-83E" secondAttribute="leadingMargin" id="568-wx-qkG"/>
+                            <constraint firstItem="kMR-Y4-mcV" firstAttribute="trailing" secondItem="bHj-hX-83E" secondAttribute="trailingMargin" id="79W-Zc-jI2"/>
+                            <constraint firstItem="oIv-rX-Zo7" firstAttribute="trailing" secondItem="bHj-hX-83E" secondAttribute="trailingMargin" id="AIn-jq-pHt"/>
+                            <constraint firstItem="hhS-rj-SYW" firstAttribute="leading" secondItem="bHj-hX-83E" secondAttribute="leadingMargin" constant="-16" id="eci-IL-PrJ"/>
+                            <constraint firstItem="kMR-Y4-mcV" firstAttribute="leading" secondItem="bHj-hX-83E" secondAttribute="leadingMargin" id="nnP-3o-SXM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hhS-rj-SYW" secondAttribute="trailing" constant="-16" id="wtD-Ap-6ef"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movile Next" id="TBa-FT-zN8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="U3u-ct-gwa">
+                            <connections>
+                                <action selector="sharePressed:" destination="0rd-p2-6ZT" id="2Yn-Hg-8kj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="hhS-rj-SYW" id="1TS-jK-pVR"/>
+                        <outlet property="overviewText" destination="oIv-rX-Zo7" id="Rxy-sm-Cu2"/>
+                        <outlet property="titleLabel" destination="kMR-Y4-mcV" id="QUa-Li-MVG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fkk-2X-lx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261.5" y="417.5"/>
+        </scene>
+        <!--Custom Navigation Controller-->
+        <scene sceneID="zAU-RN-wLz">
+            <objects>
+                <navigationController id="lz6-s2-g2U" customClass="CustomNavigationController" customModule="MovileNext" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8sl-B6-MLF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0rd-p2-6ZT" kind="relationship" relationship="rootViewController" id="gWx-Yj-5yc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TW3-tm-8RE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-240" y="418"/>
+        </scene>
+    </scenes>
+</document>
