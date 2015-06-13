@@ -17,8 +17,10 @@ class EpisodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        overviewText.textContainer.lineFragmentPadding = 0
+        overviewText.textContainerInset = UIEdgeInsetsZero
+        
         titleLabel.text = "Pilot"
-        overviewText.text = "Overview about pilot episode!"
     }
     
     @IBAction func sharePressed(sender: UIBarButtonItem) {
