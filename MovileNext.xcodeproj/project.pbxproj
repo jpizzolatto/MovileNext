@@ -12,6 +12,8 @@
 		353426A7CC7C8CAFC5ACD9FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB941FF0C7299D4A14B207FC /* AppDelegate.swift */; };
 		869DFEBA58598BA654A32399 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE6A526B85D4B3829DA75E96 /* Images.xcassets */; };
 		A4C2C8E75417D3085A158438 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = ADA07210872EF40D38E0B376 /* Main.storyboard */; };
+		CE0457CF1B2DC0B900931D8E /* EpisodesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0457CE1B2DC0B900931D8E /* EpisodesListViewController.swift */; };
+		CE7759321B2DCCAB00609D55 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7759311B2DCCAB00609D55 /* EpisodeTableViewCell.swift */; };
 		CE8E4F381B2CAE20006F69A3 /* UIColor+MovileNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F371B2CAE20006F69A3 /* UIColor+MovileNext.swift */; };
 		CE8E4F3A1B2CAFBE006F69A3 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F391B2CAFBE006F69A3 /* CustomNavigationController.swift */; };
 		CE8E4F3C1B2CB113006F69A3 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */; };
@@ -39,6 +41,8 @@
 		ADA07210872EF40D38E0B376 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AE6A526B85D4B3829DA75E96 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB941FF0C7299D4A14B207FC /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE0457CE1B2DC0B900931D8E /* EpisodesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodesListViewController.swift; sourceTree = "<group>"; };
+		CE7759311B2DCCAB00609D55 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		CE8E4F371B2CAE20006F69A3 /* UIColor+MovileNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MovileNext.swift"; sourceTree = "<group>"; };
 		CE8E4F391B2CAFBE006F69A3 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		069C56BC445DB6B0E19F38DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE7759311B2DCCAB00609D55 /* EpisodeTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			children = (
 				CE8E4F391B2CAFBE006F69A3 /* CustomNavigationController.swift */,
 				CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */,
+				CE0457CE1B2DC0B900931D8E /* EpisodesListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -340,7 +346,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/natalie.swift \"$PROJECT_DIR/$PROJECT_NAME\" > \"$PROJECT_DIR/$PROJECT_NAME/Controllers/Storyboard.swift\"";
+			shellScript = "/usr/local/bin/natalie.swift \"$PROJECT_DIR/$PROJECT_NAME\" > \"$PROJECT_DIR/$PROJECT_NAME/Controllers/Storyboards.swift\"";
 		};
 		D63B0B3FDD3A4E9739A862E9 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -402,9 +408,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE8E4F3A1B2CAFBE006F69A3 /* CustomNavigationController.swift in Sources */,
+				CE7759321B2DCCAB00609D55 /* EpisodeTableViewCell.swift in Sources */,
 				CE8E4F3C1B2CB113006F69A3 /* EpisodeViewController.swift in Sources */,
 				353426A7CC7C8CAFC5ACD9FF /* AppDelegate.swift in Sources */,
 				2CF0773C27B7E5356FCBD7ED /* Storyboards.swift in Sources */,
+				CE0457CF1B2DC0B900931D8E /* EpisodesListViewController.swift in Sources */,
 				A4C2C8E75417D3085A158438 /* Main.storyboard in Sources */,
 				CE8E4F381B2CAE20006F69A3 /* UIColor+MovileNext.swift in Sources */,
 			);
