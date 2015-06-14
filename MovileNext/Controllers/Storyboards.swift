@@ -236,6 +236,8 @@ extension ShowsViewController {
 
         var viewType: UIView.Type? {
             switch (self) {
+            case ShowCell:
+                return ShowItemCollectionViewCell.self
             default:
                 return nil
             }

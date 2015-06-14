@@ -8,14 +8,12 @@
 
 import UIKit
 
-class ShowsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ShowsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var showsView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        showsView.backgroundColor = UIColor.whiteColor()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -26,24 +24,23 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         let identifier = Reusable.ShowCell.identifier!
         
-        let cell = showsView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let item = showsView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! ShowItemCollectionViewCell
         
-        var label: UILabel = cell.viewWithTag(1) as! UILabel
-        label.text = "Cell \(indexPath.row)"
+        item.showLabel.text = "Cell \(indexPath.row)"
         
-        return cell
+        return item
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-        insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let border = flowLayout.sectionInset.left - flowLayout.sectionInset.right
-        let itemSize = flowLayout.itemSize.width + flowLayout.minimumInteritemSpacing
-        let maxPerRow = floor((collectionView.bounds.width - border) / itemSize)
-        let usedSpace = border + itemSize * maxPerRow
-        let space = floor((collectionView.bounds.width - usedSpace) / 2)
+        var flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         
-        return UIEdgeInsets(top: flowLayout.sectionInset.top, left: space, bottom: flowLayout.sectionInset.bottom, right: space)
+        var itemSize = flowLayout.itemSize.width + flowLayout.minimumInteritemSpacing
+        var maxPerRow = floor(collectionView.bounds.width / itemSize)
+        var usedSpace = itemSize * maxPerRow
+        var sideSpace = floor((collectionView.bounds.width - usedSpace) / 2)
+        
+        return UIEdgeInsetsMake(flowLayout.sectionInset.top, sideSpace, flowLayout.sectionInset.bottom, sideSpace)
     }
+    
 }
