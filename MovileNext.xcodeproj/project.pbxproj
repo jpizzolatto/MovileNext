@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B79238F8DA2F6999460998C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8960D3266B12E341B96EF6 /* Foundation.framework */; };
+		1D5509D4927F8938236DD00B /* Pods_MovileNext.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FFFE80D687B2C0485F9BE /* Pods_MovileNext.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2CF0773C27B7E5356FCBD7ED /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082BB50A1B68F2A726A2C502 /* Storyboards.swift */; };
 		353426A7CC7C8CAFC5ACD9FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB941FF0C7299D4A14B207FC /* AppDelegate.swift */; };
 		869DFEBA58598BA654A32399 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE6A526B85D4B3829DA75E96 /* Images.xcassets */; };
@@ -34,8 +35,11 @@
 
 /* Begin PBXFileReference section */
 		082BB50A1B68F2A726A2C502 /* Storyboards.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		142B594767018C6530FD69D8 /* Pods-MovileNext.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovileNext.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovileNext/Pods-MovileNext.debug.xcconfig"; sourceTree = "<group>"; };
 		2088022ED65228A1F521FBF8 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B1707D61DE58B1A69A96984 /* Pods-MovileNext.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovileNext.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovileNext/Pods-MovileNext.release.xcconfig"; sourceTree = "<group>"; };
 		3E751F24F7380EDFE19F1602 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		715FFFE80D687B2C0485F9BE /* Pods_MovileNext.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovileNext.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C44D95D1B0E9DCB32F4FAA6 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		81FEFCD340AC536210DA9F93 /* MovileNext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovileNext.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C72363449C2E4B014F05381 /* Pods-unit_tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B79238F8DA2F6999460998C /* Foundation.framework in Frameworks */,
+				1D5509D4927F8938236DD00B /* Pods_MovileNext.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +93,8 @@
 			children = (
 				FEA899828A63976EFD177B04 /* Pods-unit_tests.release.xcconfig */,
 				8C72363449C2E4B014F05381 /* Pods-unit_tests.debug.xcconfig */,
+				2B1707D61DE58B1A69A96984 /* Pods-MovileNext.release.xcconfig */,
+				142B594767018C6530FD69D8 /* Pods-MovileNext.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 			children = (
 				9BCE2F7CB40698F7D75765E1 /* iOS */,
 				94BFC8A1F6FF06FBE128F08B /* Pods_unit_tests.framework */,
+				715FFFE80D687B2C0485F9BE /* Pods_MovileNext.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,10 +287,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BBA51866775C1E39CFCC3C2 /* Build configuration list for PBXNativeTarget "MovileNext" */;
 			buildPhases = (
+				3A1ADCDE075A69DB10F31786 /* Check Pods Manifest.lock */,
 				CE8E4F3D1B2CBB1A006F69A3 /* Generate Storyboard.swift */,
 				FD978FEFD100E28F56AB89A2 /* Sources */,
 				C1561BEF85F678A3B2DB5AD9 /* Frameworks */,
 				23D2114F772315E0D0354734 /* Resources */,
+				F53D761AD6195EE7E08F1AEB /* Embed Pods Frameworks */,
+				34E3A5474EEF0CDDF4402296 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -340,6 +351,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		34E3A5474EEF0CDDF4402296 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovileNext/Pods-MovileNext-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A1ADCDE075A69DB10F31786 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		CE8E4F3D1B2CBB1A006F69A3 /* Generate Storyboard.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,6 +423,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F53D761AD6195EE7E08F1AEB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovileNext/Pods-MovileNext-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F8A3CB7BE590AB05B388B048 /* Check Pods Manifest.lock */ = {
@@ -439,6 +495,7 @@
 /* Begin XCBuildConfiguration section */
 		2F9ECA5BD3A6AC4177566DE5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B1707D61DE58B1A69A96984 /* Pods-MovileNext.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -573,6 +630,7 @@
 		};
 		F789F156AFE72DCEE03A671F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 142B594767018C6530FD69D8 /* Pods-MovileNext.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
