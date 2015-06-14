@@ -16,7 +16,6 @@
 		CE8E4F3A1B2CAFBE006F69A3 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F391B2CAFBE006F69A3 /* CustomNavigationController.swift */; };
 		CE8E4F3C1B2CB113006F69A3 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */; };
 		DB9048A54D5E9A50FB894BB6 /* Pods_unit_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFC8A1F6FF06FBE128F08B /* Pods_unit_tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		ED7E70BE4BC067DEABE2B23B /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = 8E2B25C6D239B79516FBE9D7 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +35,6 @@
 		7C44D95D1B0E9DCB32F4FAA6 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		81FEFCD340AC536210DA9F93 /* MovileNext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovileNext.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C72363449C2E4B014F05381 /* Pods-unit_tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.debug.xcconfig"; sourceTree = "<group>"; };
-		8E2B25C6D239B79516FBE9D7 /* LaunchScreen.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		94BFC8A1F6FF06FBE128F08B /* Pods_unit_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_unit_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA07210872EF40D38E0B376 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AE6A526B85D4B3829DA75E96 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 		0E30C0EBC9CD2F1CF083BD66 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				8E2B25C6D239B79516FBE9D7 /* LaunchScreen.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -410,7 +407,6 @@
 				2CF0773C27B7E5356FCBD7ED /* Storyboards.swift in Sources */,
 				A4C2C8E75417D3085A158438 /* Main.storyboard in Sources */,
 				CE8E4F381B2CAE20006F69A3 /* UIColor+MovileNext.swift in Sources */,
-				ED7E70BE4BC067DEABE2B23B /* LaunchScreen.xib in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -562,6 +559,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
