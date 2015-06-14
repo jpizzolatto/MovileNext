@@ -37,8 +37,11 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         var itemSize = flowLayout.itemSize.width + flowLayout.minimumInteritemSpacing
         var maxPerRow = floor(collectionView.bounds.width / itemSize)
+        
         var usedSpace = itemSize * maxPerRow
-        var sideSpace = floor((collectionView.bounds.width - usedSpace) / 2)
+        var additionalSpace = flowLayout.minimumInteritemSpacing * maxPerRow
+        
+        var sideSpace = floor(((collectionView.bounds.width - usedSpace) + additionalSpace) / (maxPerRow + 1))
         
         return UIEdgeInsetsMake(flowLayout.sectionInset.top, sideSpace, flowLayout.sectionInset.bottom, sideSpace)
     }
