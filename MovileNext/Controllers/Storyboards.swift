@@ -146,6 +146,45 @@ extension UITableViewController {
 //MARK: - EpisodeViewController
 
 //MARK: - EpisodesListViewController
+extension UIStoryboardSegue {
+    func selection() -> EpisodesListViewController.Segue? {
+        if let identifier = self.identifier {
+            return EpisodesListViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension EpisodesListViewController { 
+
+    enum Segue: String, Printable, SegueProtocol {
+        case OpenEpisode = "OpenEpisode"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case OpenEpisode:
+                return SegueKind(rawValue: "show")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var destination: UIViewController.Type? {
+            switch (self) {
+            case OpenEpisode:
+                return EpisodeViewController.self
+            default:
+                assertionFailure("Unknown destination")
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
 extension EpisodesListViewController { 
 
     enum Reusable: String, Printable, ReusableProtocol {
@@ -178,3 +217,33 @@ extension EpisodesListViewController {
 
 
 //MARK: - CustomNavigationController
+
+//MARK: - ShowsViewController
+extension ShowsViewController { 
+
+    enum Reusable: String, Printable, ReusableProtocol {
+        case ShowCell = "ShowCell"
+
+        var kind: ReusableKind? {
+            switch (self) {
+            case ShowCell:
+                return ReusableKind(rawValue: "collectionViewCell")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var viewType: UIView.Type? {
+            switch (self) {
+            default:
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
+
