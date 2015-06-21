@@ -7,17 +7,34 @@
 //
 
 import UIKit
+import TraktModels
 
 class ShowsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var showsView: UICollectionView!
     
+    private let httpClient = TraktHTTPClient()
+    private var popularShows : [Show] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadShows()
+    }
+    
+    private func loadShows() {
+        
+        httpClient.getPopularShows({[weak self] result in
+            
+            if let shows = result.value {
+                self?.popularShows = shows
+                self?.showsView.reloadData()
+            }
+        })
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.popularShows.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -26,7 +43,8 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         let item = showsView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! ShowItemCollectionViewCell
         
-        item.showLabel.text = "Cell \(indexPath.row)"
+        let show = self.popularShows[indexPath.row]
+        item.loadShow(show)
         
         return item
     }

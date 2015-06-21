@@ -7,12 +7,30 @@
 //
 
 import UIKit
+import TraktModels
+import Haneke
 
 class ShowItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showLabel: UILabel!
     
+    func loadShow(show : Show) {
+        
+        let placeholder = UIImage(named: "poster")
+        
+        if let image = show.poster?.fullImageURL {
+            self.showImage.hnk_setImageFromURL(image, placeholder: placeholder)
+        }
+        else {
+            self.showImage.image = placeholder
+        }
+        
+        self.showLabel.text = show.title
+    }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
     
 }

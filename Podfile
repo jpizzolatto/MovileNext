@@ -10,6 +10,7 @@ target 'MovileNext', :exclusive => true do
 	pod 'Argo'
 	pod 'Result'
 	pod 'TraktModels', :git => 'https://github.com/marcelofabri/TraktModels.git'
+	pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift'
 end
 
 target :unit_tests, :exclusive => true do
