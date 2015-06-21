@@ -30,7 +30,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="hhS-rj-SYW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="hhS-rj-SYW">
                                 <rect key="frame" x="0.0" y="64" width="375" height="234"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="234" id="J97-IG-ge5"/>
@@ -119,7 +119,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0rd-p2-6ZT" kind="show" identifier="OpenEpisode" id="M6H-Te-pec"/>
+                                            <segue destination="0rd-p2-6ZT" kind="show" identifier="show_single_episode" id="M6H-Te-pec"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -231,7 +231,7 @@
                                         <connections>
                                             <outlet property="showImage" destination="M4B-so-6tC" id="VCy-SO-AsL"/>
                                             <outlet property="showLabel" destination="zt9-wm-xi8" id="MYA-GF-bnp"/>
-                                            <segue destination="uKG-NG-QUw" kind="show" id="DyP-M1-ZsU"/>
+                                            <segue destination="uKG-NG-QUw" kind="show" identifier="show_episodes" id="DyP-M1-ZsU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

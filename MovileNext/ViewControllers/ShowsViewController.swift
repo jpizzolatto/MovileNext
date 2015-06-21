@@ -33,6 +33,21 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         })
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue == Segue.show_episodes {
+            if let cell = sender as? UICollectionViewCell,
+                   indexPath = showsView.indexPathForCell(cell) {
+                   
+                    let vc = segue.destinationViewController as! EpisodesListViewController
+                    vc.selectedShow = popularShows[indexPath.row]
+                    vc.seasonNumber = 1
+                    
+                    self.showsView.deselectItemAtIndexPath(indexPath, animated: true)
+            }
+        }
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.popularShows.count
     }

@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovileNext/ViewControllers/EpisodesListViewController.swift"
-            timestampString = "455986246.508522"
+            filePath = "MovileNext/Views/EpisodeTableViewCell.swift"
+            timestampString = "456612679.326724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "loadEpisode(_:season:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

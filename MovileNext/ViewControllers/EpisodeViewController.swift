@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import TraktModels
+import Haneke
+
 
 class EpisodeViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewText: UITextView!
+    
+    var selectedEpisode : Episode?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +25,17 @@ class EpisodeViewController: UIViewController {
         overviewText.textContainer.lineFragmentPadding = 0
         overviewText.textContainerInset = UIEdgeInsetsZero
         
-        titleLabel.text = "Pilot"
+        titleLabel.text = selectedEpisode?.title
+        overviewText.text = selectedEpisode?.overview
+        
+        let placeholder = UIImage(named: "bg")?.darkenImage()
+        
+        if let image = selectedEpisode?.screenshot?.fullImageURL {
+            imageView.hnk_setImageFromURL(image, placeholder: placeholder)
+        }
+        else {
+            imageView.image = placeholder
+        }
     }
     
     @IBAction func sharePressed(sender: UIBarButtonItem) {

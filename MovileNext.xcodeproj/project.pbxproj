@@ -21,6 +21,7 @@
 		CE8E4F381B2CAE20006F69A3 /* UIColor+MovileNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F371B2CAE20006F69A3 /* UIColor+MovileNext.swift */; };
 		CE8E4F3A1B2CAFBE006F69A3 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F391B2CAFBE006F69A3 /* CustomNavigationController.swift */; };
 		CE8E4F3C1B2CB113006F69A3 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */; };
+		CECDB27E1B3754CE00F73E18 /* UIImage+DarkenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB27D1B3754CE00F73E18 /* UIImage+DarkenImage.swift */; };
 		DB9048A54D5E9A50FB894BB6 /* Pods_unit_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFC8A1F6FF06FBE128F08B /* Pods_unit_tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		CE8E4F371B2CAE20006F69A3 /* UIColor+MovileNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MovileNext.swift"; sourceTree = "<group>"; };
 		CE8E4F391B2CAFBE006F69A3 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		CECDB27D1B3754CE00F73E18 /* UIImage+DarkenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+DarkenImage.swift"; sourceTree = "<group>"; };
 		DE8960D3266B12E341B96EF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		FEA899828A63976EFD177B04 /* Pods-unit_tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +245,7 @@
 		EBA47077DE71BD032DC55EE6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CECDB27D1B3754CE00F73E18 /* UIImage+DarkenImage.swift */,
 				CE8E4F371B2CAE20006F69A3 /* UIColor+MovileNext.swift */,
 			);
 			path = Extensions;
@@ -472,6 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECDB27E1B3754CE00F73E18 /* UIImage+DarkenImage.swift in Sources */,
 				CE7759341B2DD41100609D55 /* ShowsViewController.swift in Sources */,
 				CE8E4F3A1B2CAFBE006F69A3 /* CustomNavigationController.swift in Sources */,
 				CE7759361B2DFAB200609D55 /* ShowItemCollectionViewCell.swift in Sources */,

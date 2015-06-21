@@ -158,11 +158,11 @@ extension UIStoryboardSegue {
 extension EpisodesListViewController { 
 
     enum Segue: String, Printable, SegueProtocol {
-        case OpenEpisode = "OpenEpisode"
+        case show_single_episode = "show_single_episode"
 
         var kind: SegueKind? {
             switch (self) {
-            case OpenEpisode:
+            case show_single_episode:
                 return SegueKind(rawValue: "show")
             default:
                 preconditionFailure("Invalid value")
@@ -172,7 +172,7 @@ extension EpisodesListViewController {
 
         var destination: UIViewController.Type? {
             switch (self) {
-            case OpenEpisode:
+            case show_single_episode:
                 return EpisodeViewController.self
             default:
                 assertionFailure("Unknown destination")
@@ -219,6 +219,45 @@ extension EpisodesListViewController {
 //MARK: - CustomNavigationController
 
 //MARK: - ShowsViewController
+extension UIStoryboardSegue {
+    func selection() -> ShowsViewController.Segue? {
+        if let identifier = self.identifier {
+            return ShowsViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension ShowsViewController { 
+
+    enum Segue: String, Printable, SegueProtocol {
+        case show_episodes = "show_episodes"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case show_episodes:
+                return SegueKind(rawValue: "show")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var destination: UIViewController.Type? {
+            switch (self) {
+            case show_episodes:
+                return EpisodesListViewController.self
+            default:
+                assertionFailure("Unknown destination")
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
 extension ShowsViewController { 
 
     enum Reusable: String, Printable, ReusableProtocol {

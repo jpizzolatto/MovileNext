@@ -20,17 +20,20 @@ class ShowItemCollectionViewCell: UICollectionViewCell {
         let placeholder = UIImage(named: "poster")
         
         if let image = show.poster?.fullImageURL {
-            self.showImage.hnk_setImageFromURL(image, placeholder: placeholder)
+            showImage.hnk_setImageFromURL(image, placeholder: placeholder)
         }
         else {
-            self.showImage.image = placeholder
+            showImage.image = placeholder
         }
         
-        self.showLabel.text = show.title
+        showLabel.text = show.title
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
+//        showImage.hnk_cancelSetImage()
+//        showImage.image = nil
     }
     
 }

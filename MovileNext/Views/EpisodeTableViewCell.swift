@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TraktModels
 
 class EpisodeTableViewCell: UITableViewCell {
 
@@ -22,6 +23,17 @@ class EpisodeTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+    }
+    
+    func loadEpisode(episode : Episode, season : Int) {
+        
+        textLabel?.text = String(format: "S%02dE%02d", season, episode.number)
+        detailTextLabel?.text = episode.title
+        
+        if episode.firstAired!.timeIntervalSince1970 > NSDate().timeIntervalSince1970 {
+            
+            detailTextLabel?.textColor = UIColor.grayColor()
+        }
     }
 
 }
