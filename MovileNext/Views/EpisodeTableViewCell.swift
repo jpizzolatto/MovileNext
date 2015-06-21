@@ -32,7 +32,7 @@ class EpisodeTableViewCell: UITableViewCell {
         
         if episode.firstAired!.timeIntervalSince1970 > NSDate().timeIntervalSince1970 {
             
-            detailTextLabel?.textColor = UIColor.grayColor()
+            detailTextLabel?.textColor = UIColor.lightGrayColor()
         }
     }
 
