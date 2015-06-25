@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgH-C2-fTG">
-                                <rect key="frame" x="16" y="306" width="72" height="20.5"/>
+                                <rect key="frame" x="16" y="306" width="72" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIv-rX-Zo7">
-                                <rect key="frame" x="16" y="334" width="343" height="312.5"/>
+                                <rect key="frame" x="16" y="335" width="343" height="312"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -43,7 +43,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tds-tk-RPK">
-                                <rect key="frame" x="16" y="260" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="260" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -203,9 +203,13 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="M4B-so-6tC">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="139"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="22h-zS-PDF"/>
+                                                        <constraint firstAttribute="height" constant="139" id="bmE-Fs-9EU"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt9-wm-xi8">
-                                                    <rect key="frame" x="0.0" y="142" width="90" height="14.5"/>
+                                                    <rect key="frame" x="0.0" y="142" width="90" height="15"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -218,16 +222,8 @@
                                             <constraint firstItem="zt9-wm-xi8" firstAttribute="leading" secondItem="MLW-8s-MY4" secondAttribute="leading" id="VhJ-ZB-fqb"/>
                                             <constraint firstAttribute="trailing" secondItem="M4B-so-6tC" secondAttribute="trailing" id="X8Z-DW-VcW"/>
                                             <constraint firstItem="zt9-wm-xi8" firstAttribute="top" secondItem="M4B-so-6tC" secondAttribute="bottom" constant="3" id="aiv-9D-R5q"/>
-                                            <constraint firstAttribute="bottom" secondItem="zt9-wm-xi8" secondAttribute="bottom" id="dhy-Qs-J6x"/>
                                             <constraint firstItem="M4B-so-6tC" firstAttribute="top" secondItem="MLW-8s-MY4" secondAttribute="top" id="hwQ-0E-SGf"/>
-                                            <constraint firstItem="zt9-wm-xi8" firstAttribute="top" secondItem="M4B-so-6tC" secondAttribute="bottom" constant="2" id="wf1-VC-E8d"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="dhy-Qs-J6x"/>
-                                                <exclude reference="wf1-VC-E8d"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <outlet property="showImage" destination="M4B-so-6tC" id="VCy-SO-AsL"/>
                                             <outlet property="showLabel" destination="zt9-wm-xi8" id="MYA-GF-bnp"/>

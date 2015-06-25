@@ -8,7 +8,7 @@
 
 import UIKit
 import TraktModels
-import Haneke
+import Kingfisher
 
 class ShowItemCollectionViewCell: UICollectionViewCell {
     
@@ -20,7 +20,7 @@ class ShowItemCollectionViewCell: UICollectionViewCell {
         let placeholder = UIImage(named: "poster")
         
         if let image = show.poster?.fullImageURL {
-            showImage.hnk_setImageFromURL(image, placeholder: placeholder)
+            showImage.kf_setImageWithURL(image, placeholderImage: placeholder)
         }
         else {
             showImage.image = placeholder
@@ -31,9 +31,8 @@ class ShowItemCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-//        showImage.hnk_cancelSetImage()
-//        showImage.image = nil
+
+        showImage.image = nil
     }
     
 }

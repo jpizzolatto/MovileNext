@@ -8,7 +8,7 @@
 
 import UIKit
 import TraktModels
-import Haneke
+import Kingfisher
 
 
 class EpisodeViewController: UIViewController {
@@ -31,7 +31,14 @@ class EpisodeViewController: UIViewController {
         let placeholder = UIImage(named: "bg")?.darkenImage()
         
         if let image = selectedEpisode?.screenshot?.fullImageURL {
-            imageView.hnk_setImageFromURL(image, placeholder: placeholder)
+            imageView.kf_setImageWithURL(
+                image,
+                placeholderImage: placeholder,
+                optionsInfo: nil,
+                progressBlock: nil,
+                completionHandler : { (imageLoaded, error, _,  _) in
+                    self.imageView.image = imageLoaded!.darkenImage()
+            })
         }
         else {
             imageView.image = placeholder
