@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileNext/Views/SeasonTableViewCell.swift"
-            timestampString = "457121912.80802"
+            timestampString = "457127894.729546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "loadSeason(_:)"
             landmarkType = "5">
          </BreakpointContent>

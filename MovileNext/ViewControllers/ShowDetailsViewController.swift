@@ -20,7 +20,7 @@ class ShowDetailsViewController: UIViewController {
     
     var selectedShow : Show?
     var seasons : [Season] = []
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

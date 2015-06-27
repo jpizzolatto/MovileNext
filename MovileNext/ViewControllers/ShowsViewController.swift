@@ -40,7 +40,11 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
                    indexPath = showsView.indexPathForCell(cell) {
                    
                     let vc = segue.destinationViewController as! DetailShowViewController
-                    vc.selectedShow = popularShows[indexPath.row]
+                    
+                    if let id = popularShows[indexPath.row].identifiers.slug {
+                        vc.showID = id
+                        vc.selectedShowTitle = popularShows[indexPath.row].title
+                    }
                     
                     self.showsView.deselectItemAtIndexPath(indexPath, animated: true)
             }

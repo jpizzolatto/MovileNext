@@ -19,12 +19,19 @@ class SeasonTableViewCell: UITableViewCell {
     @IBOutlet weak var ratingStars: FloatRatingView!
     @IBOutlet weak var ratingNumber: UILabel!
     
+    var task : RetrieveImageTask?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
+        if task != nil {
+            task?.cancel()
+        }
+        seasonImage.image = nil
     }
     
     func loadSeason(season : Season) -> Void {
@@ -32,7 +39,7 @@ class SeasonTableViewCell: UITableViewCell {
         let placeholder = UIImage(named: "poster")
         
         if let image = season.poster?.fullImageURL {
-            seasonImage.kf_setImageWithURL(image, placeholderImage: placeholder)
+            task = seasonImage.kf_setImageWithURL(image, placeholderImage: placeholder)
         }
         else {
             seasonImage.image = placeholder

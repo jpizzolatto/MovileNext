@@ -15,12 +15,14 @@ class ShowItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showLabel: UILabel!
     
+    var task : RetrieveImageTask?
+    
     func loadShow(show : Show) {
         
         let placeholder = UIImage(named: "poster")
         
         if let image = show.poster?.fullImageURL {
-            showImage.kf_setImageWithURL(image, placeholderImage: placeholder)
+            task = showImage.kf_setImageWithURL(image, placeholderImage: placeholder)
         }
         else {
             showImage.image = placeholder
@@ -31,7 +33,10 @@ class ShowItemCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
+        
+        if task != nil {
+            task?.cancel()
+        }
         showImage.image = nil
     }
     

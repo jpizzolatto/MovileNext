@@ -14,26 +14,39 @@ class DetailShowViewController: UIViewController {
     @IBOutlet weak var showTitle: UINavigationItem!
     
     private let httpClient = TraktHTTPClient()
+    
+    var showID : String?
+    var selectedShowTitle = ""
+    
     var selectedShow : Show?
     var seasons : [Season] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showTitle.title = selectedShow!.title
+        showTitle.title = selectedShowTitle
         
-        if let showID = selectedShow!.identifiers.slug {
+        httpClient.getSeasons(showID!, completion: {
+            [weak self] result in
             
-            httpClient.getSeasons(showID, completion: {
-                [weak self] result in
-                
-                if let seasons = result.value {
-                    self?.seasons = seasons
-                    self?.seasons.sort { $0.number > $1.number }
-                }
-            })
-        }
+            if let seasons = result.value {
+                self?.seasons = seasons
+                self?.seasons.sort { $0.number > $1.number }
+            }
+        })
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        httpClient.getShow(showID!, completion: {
+            [weak self] result in
+            
+            if let show = result.value {
+                self?.selectedShow = show
+            }
+        })
+    } 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
