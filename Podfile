@@ -11,6 +11,10 @@ target 'MovileNext', :exclusive => true do
 	pod 'Result'
 	pod 'TraktModels', :git => 'https://github.com/marcelofabri/TraktModels.git'
 	pod 'Kingfisher', '~> 1.4'
+	pod 'TagListView'
+	pod 'BorderedView'
+	pod 'OverlayView', :git => 'https://github.com/marcelofabri/OverlayView.git'
+	pod 'FloatRatingView', :git => 'https://github.com/strekfus/FloatRatingView.git'
 end
 
 target :unit_tests, :exclusive => true do

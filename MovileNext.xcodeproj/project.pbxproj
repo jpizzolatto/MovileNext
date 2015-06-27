@@ -18,6 +18,12 @@
 		CE7759341B2DD41100609D55 /* ShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7759331B2DD41100609D55 /* ShowsViewController.swift */; };
 		CE7759361B2DFAB200609D55 /* ShowItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7759351B2DFAB200609D55 /* ShowItemCollectionViewCell.swift */; };
 		CE7759381B2E1AA200609D55 /* TraktHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7759371B2E1AA200609D55 /* TraktHTTPClient.swift */; };
+		CE7D042C1B3EE5D4007EA4BE /* DetailShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D042B1B3EE5D4007EA4BE /* DetailShowViewController.swift */; };
+		CE7D042E1B3EEC08007EA4BE /* OverviewShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D042D1B3EEC08007EA4BE /* OverviewShowViewController.swift */; };
+		CE7D04301B3EEC48007EA4BE /* SeasonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D042F1B3EEC48007EA4BE /* SeasonsViewController.swift */; };
+		CE7D04321B3EEC84007EA4BE /* ShowGenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D04311B3EEC84007EA4BE /* ShowGenresViewController.swift */; };
+		CE7D04341B3EECA3007EA4BE /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D04331B3EECA3007EA4BE /* ShowDetailsViewController.swift */; };
+		CE7D04361B3EF928007EA4BE /* SeasonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D04351B3EF928007EA4BE /* SeasonTableViewCell.swift */; };
 		CE8E4F381B2CAE20006F69A3 /* UIColor+MovileNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F371B2CAE20006F69A3 /* UIColor+MovileNext.swift */; };
 		CE8E4F3A1B2CAFBE006F69A3 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F391B2CAFBE006F69A3 /* CustomNavigationController.swift */; };
 		CE8E4F3C1B2CB113006F69A3 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */; };
@@ -54,6 +60,12 @@
 		CE7759331B2DD41100609D55 /* ShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowsViewController.swift; sourceTree = "<group>"; };
 		CE7759351B2DFAB200609D55 /* ShowItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE7759371B2E1AA200609D55 /* TraktHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktHTTPClient.swift; sourceTree = "<group>"; };
+		CE7D042B1B3EE5D4007EA4BE /* DetailShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailShowViewController.swift; sourceTree = "<group>"; };
+		CE7D042D1B3EEC08007EA4BE /* OverviewShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewShowViewController.swift; sourceTree = "<group>"; };
+		CE7D042F1B3EEC48007EA4BE /* SeasonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonsViewController.swift; sourceTree = "<group>"; };
+		CE7D04311B3EEC84007EA4BE /* ShowGenresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowGenresViewController.swift; sourceTree = "<group>"; };
+		CE7D04331B3EECA3007EA4BE /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailsViewController.swift; sourceTree = "<group>"; };
+		CE7D04351B3EF928007EA4BE /* SeasonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonTableViewCell.swift; sourceTree = "<group>"; };
 		CE8E4F371B2CAE20006F69A3 /* UIColor+MovileNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MovileNext.swift"; sourceTree = "<group>"; };
 		CE8E4F391B2CAFBE006F69A3 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +100,7 @@
 			children = (
 				CE7759311B2DCCAB00609D55 /* EpisodeTableViewCell.swift */,
 				CE7759351B2DFAB200609D55 /* ShowItemCollectionViewCell.swift */,
+				CE7D04351B3EF928007EA4BE /* SeasonTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +251,11 @@
 				CE8E4F3B1B2CB113006F69A3 /* EpisodeViewController.swift */,
 				CE0457CE1B2DC0B900931D8E /* EpisodesListViewController.swift */,
 				CE7759331B2DD41100609D55 /* ShowsViewController.swift */,
+				CE7D042B1B3EE5D4007EA4BE /* DetailShowViewController.swift */,
+				CE7D042D1B3EEC08007EA4BE /* OverviewShowViewController.swift */,
+				CE7D042F1B3EEC48007EA4BE /* SeasonsViewController.swift */,
+				CE7D04311B3EEC84007EA4BE /* ShowGenresViewController.swift */,
+				CE7D04331B3EECA3007EA4BE /* ShowDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -480,13 +498,19 @@
 				CE8E4F3A1B2CAFBE006F69A3 /* CustomNavigationController.swift in Sources */,
 				CE7759361B2DFAB200609D55 /* ShowItemCollectionViewCell.swift in Sources */,
 				CE7759321B2DCCAB00609D55 /* EpisodeTableViewCell.swift in Sources */,
+				CE7D042C1B3EE5D4007EA4BE /* DetailShowViewController.swift in Sources */,
 				CE8E4F3C1B2CB113006F69A3 /* EpisodeViewController.swift in Sources */,
 				353426A7CC7C8CAFC5ACD9FF /* AppDelegate.swift in Sources */,
+				CE7D042E1B3EEC08007EA4BE /* OverviewShowViewController.swift in Sources */,
 				2CF0773C27B7E5356FCBD7ED /* Storyboards.swift in Sources */,
 				CE0457CF1B2DC0B900931D8E /* EpisodesListViewController.swift in Sources */,
+				CE7D04301B3EEC48007EA4BE /* SeasonsViewController.swift in Sources */,
+				CE7D04361B3EF928007EA4BE /* SeasonTableViewCell.swift in Sources */,
 				A4C2C8E75417D3085A158438 /* Main.storyboard in Sources */,
+				CE7D04321B3EEC84007EA4BE /* ShowGenresViewController.swift in Sources */,
 				CE7759381B2E1AA200609D55 /* TraktHTTPClient.swift in Sources */,
 				CE8E4F381B2CAE20006F69A3 /* UIColor+MovileNext.swift in Sources */,
+				CE7D04341B3EECA3007EA4BE /* ShowDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

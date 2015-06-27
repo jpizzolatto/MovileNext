@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E3254E61630CC45812A2273A"
-               BuildableName = "Haneke.framework"
-               BlueprintName = "Pods-MovileNext-HanekeSwift"
+               BlueprintIdentifier = "540F6D50653F0F58F87729EF"
+               BuildableName = "TagListView.framework"
+               BlueprintName = "Pods-MovileNext-TagListView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

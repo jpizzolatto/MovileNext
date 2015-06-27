@@ -36,7 +36,7 @@ class EpisodeViewController: UIViewController {
                 placeholderImage: placeholder,
                 optionsInfo: nil,
                 progressBlock: nil,
-                completionHandler : { (imageLoaded, error, _,  _) in
+                completionHandler : { (imageLoaded, _, _,  _) in
                     self.imageView.image = imageLoaded!.darkenImage()
             })
         }

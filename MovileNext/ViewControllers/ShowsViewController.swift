@@ -35,13 +35,12 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue == Segue.show_episodes {
+        if segue == Segue.select_show {
             if let cell = sender as? UICollectionViewCell,
                    indexPath = showsView.indexPathForCell(cell) {
                    
-                    let vc = segue.destinationViewController as! EpisodesListViewController
+                    let vc = segue.destinationViewController as! DetailShowViewController
                     vc.selectedShow = popularShows[indexPath.row]
-                    vc.seasonNumber = 1
                     
                     self.showsView.deselectItemAtIndexPath(indexPath, animated: true)
             }

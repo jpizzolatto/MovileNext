@@ -30,9 +30,12 @@ class EpisodeTableViewCell: UITableViewCell {
         textLabel?.text = String(format: "S%02dE%02d", season, episode.number)
         detailTextLabel?.text = episode.title
         
-        if episode.firstAired!.timeIntervalSince1970 > NSDate().timeIntervalSince1970 {
+        if let first = episode.firstAired {
             
-            detailTextLabel?.textColor = UIColor.lightGrayColor()
+            if first.timeIntervalSince1970 > NSDate().timeIntervalSince1970 {
+                
+                detailTextLabel?.textColor = UIColor.lightGrayColor()
+            }
         }
     }
 
