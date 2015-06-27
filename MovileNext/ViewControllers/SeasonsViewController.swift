@@ -23,6 +23,7 @@ class SeasonsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    // TEMPORARY SEGUE FOR LIST OF EPISODES
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue == Segue.show_episode {

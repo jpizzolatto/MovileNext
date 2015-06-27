@@ -54,6 +54,8 @@
                             <constraint firstItem="oIv-rX-Zo7" firstAttribute="top" secondItem="YgH-C2-fTG" secondAttribute="bottom" constant="8" id="8Yw-xe-tJs"/>
                             <constraint firstItem="oIv-rX-Zo7" firstAttribute="leading" secondItem="bHj-hX-83E" secondAttribute="leading" constant="16" id="9aS-iQ-fuw"/>
                             <constraint firstItem="Tds-tk-RPK" firstAttribute="top" secondItem="hhS-rj-SYW" secondAttribute="bottom" constant="-38" id="BGt-Td-pZO"/>
+                            <constraint firstItem="Tds-tk-RPK" firstAttribute="top" secondItem="hhS-rj-SYW" secondAttribute="bottom" constant="-38" id="Ceb-Y6-r6A"/>
+                            <constraint firstItem="YgH-C2-fTG" firstAttribute="top" secondItem="Tds-tk-RPK" secondAttribute="bottom" constant="25" id="GsN-Ot-4tA"/>
                             <constraint firstItem="rZJ-aN-mRV" firstAttribute="top" secondItem="oIv-rX-Zo7" secondAttribute="bottom" constant="20" id="NWL-wF-Qrj"/>
                             <constraint firstAttribute="trailing" secondItem="hhS-rj-SYW" secondAttribute="trailing" id="TFs-uS-GFV"/>
                             <constraint firstItem="Tds-tk-RPK" firstAttribute="leading" secondItem="bHj-hX-83E" secondAttribute="leading" constant="16" id="Thk-t9-DFl"/>
@@ -64,6 +66,12 @@
                             <constraint firstAttribute="trailing" secondItem="oIv-rX-Zo7" secondAttribute="trailing" constant="16" id="iYF-dy-1MT"/>
                             <constraint firstItem="hhS-rj-SYW" firstAttribute="leading" secondItem="bHj-hX-83E" secondAttribute="leading" id="mBx-oh-o1a"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BGt-Td-pZO"/>
+                                <exclude reference="Ceb-Y6-r6A"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Episode" id="TBa-FT-zN8">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="U3u-ct-gwa">
@@ -81,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkk-2X-lx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="404.5" y="1998.5"/>
+            <point key="canvasLocation" x="585.5" y="2078.5"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="aka-DF-BSR">
@@ -153,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ddn-xH-hvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.5" y="1998.5"/>
+            <point key="canvasLocation" x="154.5" y="2078.5"/>
         </scene>
         <!--Custom Navigation Controller-->
         <scene sceneID="zAU-RN-wLz">

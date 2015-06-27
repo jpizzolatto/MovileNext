@@ -36,6 +36,7 @@ class DetailShowViewController: UIViewController {
         })
     }
     
+    // Loading one show before view appear, is this the rigth way?
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
