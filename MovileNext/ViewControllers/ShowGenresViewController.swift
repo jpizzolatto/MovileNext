@@ -10,7 +10,7 @@ import UIKit
 import TraktModels
 import TagListView
 
-class ShowGenresViewController: UIViewController {
+class ShowGenresViewController: UIViewController, ShowInternalViewController {
     
     @IBOutlet weak var genresList: TagListView!
     
@@ -19,8 +19,22 @@ class ShowGenresViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for genre in selectedShow!.genres! {
-            genresList.addTag(genre)
+        genresList.textFont = UIFont(name: "HelveticaNeue-Light", size: 12.0)!
+        
+        LoadGenres()
+    }
+    
+    func intrinsicContentSize() -> CGSize {
+        
+        return CGSize(width: genresList.intrinsicContentSize().width, height: genresList.intrinsicContentSize().height + 24.0)
+    }
+    
+    func LoadGenres() {
+        
+        if let show = self.selectedShow {
+            for genre in show.genres! {
+                genresList.addTag(genre)
+            }
         }
     }
 }

@@ -26,7 +26,13 @@ class EpisodeViewController: UIViewController {
         overviewText.textContainerInset = UIEdgeInsetsZero
         
         titleLabel.text = selectedEpisode?.title
-        overviewText.text = selectedEpisode?.overview
+        
+        if let overview = selectedEpisode?.overview  {
+            overviewText.text = overview
+        }
+        else {
+            overviewText.text = "Not defined."
+        }
         
         let placeholder = UIImage(named: "bg")?.darkenImage()
         

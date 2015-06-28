@@ -42,6 +42,7 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
                     let vc = segue.destinationViewController as! DetailShowViewController
                     
                     if let id = popularShows[indexPath.row].identifiers.slug {
+                        
                         vc.showID = id
                         vc.selectedShowTitle = popularShows[indexPath.row].title
                     }

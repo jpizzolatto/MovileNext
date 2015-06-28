@@ -302,21 +302,21 @@ extension UIStoryboardSegue {
 extension DetailShowViewController { 
 
     enum Segue: String, Printable, SegueProtocol {
-        case show_overview = "show_overview"
-        case show_seasons = "show_seasons"
-        case show_details = "show_details"
-        case show_genres = "show_genres"
+        case overview_container = "overview_container"
+        case seasons_container = "seasons_container"
+        case genres_container = "genres_container"
+        case details_container = "details_container"
 
         var kind: SegueKind? {
             switch (self) {
-            case show_overview:
-                return SegueKind(rawValue: "show")
-            case show_seasons:
-                return SegueKind(rawValue: "show")
-            case show_details:
-                return SegueKind(rawValue: "show")
-            case show_genres:
-                return SegueKind(rawValue: "show")
+            case overview_container:
+                return SegueKind(rawValue: "embed")
+            case seasons_container:
+                return SegueKind(rawValue: "embed")
+            case genres_container:
+                return SegueKind(rawValue: "embed")
+            case details_container:
+                return SegueKind(rawValue: "embed")
             default:
                 preconditionFailure("Invalid value")
                 break
@@ -325,14 +325,14 @@ extension DetailShowViewController {
 
         var destination: UIViewController.Type? {
             switch (self) {
-            case show_overview:
+            case overview_container:
                 return OverviewShowViewController.self
-            case show_seasons:
+            case seasons_container:
                 return SeasonsViewController.self
-            case show_details:
-                return ShowDetailsViewController.self
-            case show_genres:
+            case genres_container:
                 return ShowGenresViewController.self
+            case details_container:
+                return ShowDetailsViewController.self
             default:
                 assertionFailure("Unknown destination")
                 return nil

@@ -9,7 +9,7 @@
 import UIKit
 import TraktModels
 
-class SeasonsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SeasonsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ShowInternalViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,6 +37,17 @@ class SeasonsViewController: UIViewController, UITableViewDataSource, UITableVie
                     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
             }
         }
+    }
+    
+    func intrinsicContentSize() -> CGSize {
+        return tableView.contentSize
+    }
+    
+    func ReloadTable(show: Show?, seasons: [Season]) -> Void {
+        
+        self.selectedShow = show
+        self.seasonsList = seasons
+        tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

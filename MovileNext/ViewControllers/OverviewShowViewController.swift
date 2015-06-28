@@ -9,15 +9,38 @@
 import UIKit
 import TraktModels
 
-class OverviewShowViewController: UIViewController {
+class OverviewShowViewController: UIViewController, ShowInternalViewController {
     
     @IBOutlet weak var showOverview: UITextView!
+    @IBOutlet weak var overviewTitle: UILabel!
     
     var selectedShow : Show?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showOverview.text = selectedShow!.overview
+        LoadShow()
+    }
+    
+    func intrinsicContentSize() -> CGSize {
+        
+        var titleH = overviewTitle.intrinsicContentSize().height + overviewTitle.bounds.height
+        
+        let h = showOverview.intrinsicContentSize().height + titleH
+
+        return CGSize(width: showOverview.intrinsicContentSize().width, height: h)
+    }
+    
+    func LoadShow() -> Void {
+        
+        if let show = self.selectedShow {
+            
+            if let overview = show.overview {
+                showOverview.text = overview
+            }
+            else {
+                showOverview.text = "Loading..."
+            }
+        }
     }
 }

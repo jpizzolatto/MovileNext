@@ -49,10 +49,16 @@ class SeasonTableViewCell: UITableViewCell {
         if let n = season.episodeCount {
             seasonNumEp.text = "\(n) episodes"
         }
+        else {
+            seasonNumEp.text = "-"
+        }
         
         if let rate = season.rating {
             ratingNumber.text = NSString(format: "%.01f", rate) as String
             ratingStars.rating = rate
+        }
+        else {
+            ratingNumber.text = "-"
         }
     }
 }
