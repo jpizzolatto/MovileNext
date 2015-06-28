@@ -28,12 +28,12 @@ class ShowDetailsViewController: UIViewController, ShowInternalViewController {
     }
     
     func intrinsicContentSize() -> CGSize {
-        let h1 = broadcastingLabel.intrinsicContentSize().height + broadcastingLabel.bounds.height
-        let h2 = statusLabel.intrinsicContentSize().height + statusLabel.bounds.height
-        let h3 = seasonsLabel.intrinsicContentSize().height + seasonsLabel.bounds.height
-        let h4 = startedLabel.intrinsicContentSize().height + startedLabel.bounds.height
-        let h5 = countryLabel.intrinsicContentSize().height + countryLabel.bounds.height
-        let h6 = homepageLabel.intrinsicContentSize().height + homepageLabel.bounds.height
+        let h1 = broadcastingLabel.intrinsicContentSize().height + broadcastingLabel.frame.height
+        let h2 = statusLabel.intrinsicContentSize().height + statusLabel.frame.height
+        let h3 = seasonsLabel.intrinsicContentSize().height + seasonsLabel.frame.height
+        let h4 = startedLabel.intrinsicContentSize().height + startedLabel.frame.height
+        let h5 = countryLabel.intrinsicContentSize().height + countryLabel.frame.height
+        let h6 = homepageLabel.intrinsicContentSize().height + homepageLabel.frame.height
         
         return CGSize(width: 0, height: h1 + h2 + h3 + h4 + h5 + h6)
     }

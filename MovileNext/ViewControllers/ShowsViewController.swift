@@ -9,15 +9,31 @@
 import UIKit
 import TraktModels
 
+var favoriteShowsID : [String] = []
+
 class ShowsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var showsView: UICollectionView!
+    var refreshControl:UIRefreshControl!
     
+    var popularShows : [Show] = []
     private let httpClient = TraktHTTPClient()
-    private var popularShows : [Show] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.showsView.addSubview(refreshControl)
+        
+        loadShows()
+    }
+    
+    func refresh(sender:AnyObject) {
+        
+        self.popularShows.removeAll(keepCapacity: true)
+        self.showsView.reloadData()
         
         loadShows()
     }
@@ -29,6 +45,9 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
             if let shows = result.value {
                 self?.popularShows = shows
                 self?.showsView.reloadData()
+                
+                self?.showsView.reloadSections(NSIndexSet(index: 0))
+                self?.refreshControl.endRefreshing()
             }
         })
     }

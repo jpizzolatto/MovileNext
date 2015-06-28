@@ -24,7 +24,7 @@ class OverviewShowViewController: UIViewController, ShowInternalViewController {
     
     func intrinsicContentSize() -> CGSize {
         
-        var titleH = overviewTitle.intrinsicContentSize().height + overviewTitle.bounds.height
+        var titleH = overviewTitle.intrinsicContentSize().height + overviewTitle.frame.height
         
         let h = showOverview.intrinsicContentSize().height + titleH
 

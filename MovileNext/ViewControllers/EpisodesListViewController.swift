@@ -37,7 +37,7 @@ class EpisodesListViewController: UIViewController, UITableViewDelegate, UITable
                     self?.episodesList = episodes
                     self?.tableVIew.reloadData()
                 }
-                })
+            })
         }
     }
     

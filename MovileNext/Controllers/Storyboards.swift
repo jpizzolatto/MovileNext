@@ -23,6 +23,11 @@ struct Storyboards {
         static func instantiateViewControllerWithIdentifier(identifier: String) -> UIViewController {
             return self.storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
         }
+
+        static func instantiateepisodesList() -> EpisodesListViewController! {
+            return self.storyboard.instantiateViewControllerWithIdentifier("episodesList") as! EpisodesListViewController
+
+        }
     }
 }
 
@@ -306,6 +311,7 @@ extension DetailShowViewController {
         case seasons_container = "seasons_container"
         case genres_container = "genres_container"
         case details_container = "details_container"
+        case show_episodes = "show_episodes"
 
         var kind: SegueKind? {
             switch (self) {
@@ -317,6 +323,8 @@ extension DetailShowViewController {
                 return SegueKind(rawValue: "embed")
             case details_container:
                 return SegueKind(rawValue: "embed")
+            case show_episodes:
+                return SegueKind(rawValue: "show")
             default:
                 preconditionFailure("Invalid value")
                 break
@@ -333,6 +341,8 @@ extension DetailShowViewController {
                 return ShowGenresViewController.self
             case details_container:
                 return ShowDetailsViewController.self
+            case show_episodes:
+                return EpisodesListViewController.self
             default:
                 assertionFailure("Unknown destination")
                 return nil
@@ -346,45 +356,6 @@ extension DetailShowViewController {
 }
 
 //MARK: - SeasonsViewController
-extension UIStoryboardSegue {
-    func selection() -> SeasonsViewController.Segue? {
-        if let identifier = self.identifier {
-            return SeasonsViewController.Segue(rawValue: identifier)
-        }
-        return nil
-    }
-}
-
-extension SeasonsViewController { 
-
-    enum Segue: String, Printable, SegueProtocol {
-        case show_episode = "show_episode"
-
-        var kind: SegueKind? {
-            switch (self) {
-            case show_episode:
-                return SegueKind(rawValue: "show")
-            default:
-                preconditionFailure("Invalid value")
-                break
-            }
-        }
-
-        var destination: UIViewController.Type? {
-            switch (self) {
-            case show_episode:
-                return EpisodesListViewController.self
-            default:
-                assertionFailure("Unknown destination")
-                return nil
-            }
-        }
-
-        var identifier: String? { return self.description } 
-        var description: String { return self.rawValue }
-    }
-
-}
 extension SeasonsViewController { 
 
     enum Reusable: String, Printable, ReusableProtocol {

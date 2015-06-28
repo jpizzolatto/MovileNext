@@ -89,12 +89,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkk-2X-lx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1450.5" y="1071.5"/>
+            <point key="canvasLocation" x="951.5" y="1329.5"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="aka-DF-BSR">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="uKG-NG-QUw" customClass="EpisodesListViewController" customModule="MovileNext" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="episodesList" automaticallyAdjustsScrollViewInsets="NO" id="uKG-NG-QUw" customClass="EpisodesListViewController" customModule="MovileNext" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ga6-jY-ybc"/>
                         <viewControllerLayoutGuide type="bottom" id="wSF-Bl-DDe"/>
@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-hW-6tb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodeCell" textLabel="ikS-BG-DbK" detailTextLabel="dPD-qb-j7o" style="IBUITableViewCellStyleSubtitle" id="rYb-Al-SUs" customClass="EpisodeTableViewCell" customModule="MovileNext" customModuleProvider="target">
@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ddn-xH-hvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998.5" y="1071.5"/>
+            <point key="canvasLocation" x="499.5" y="1329.5"/>
         </scene>
         <!--Custom Navigation Controller-->
         <scene sceneID="zAU-RN-wLz">
@@ -289,6 +289,21 @@
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WE-BM-9qJ" customClass="OverlayView" customModule="OverlayView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-Wh-XqB">
+                                                        <rect key="frame" x="328" y="177" width="34" height="30"/>
+                                                        <state key="normal" image="like-heart">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="favoriteClicked:" destination="Gbx-xN-AUX" eventType="touchUpInside" id="M6R-ZM-p6t"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="ffd-Wh-XqB" secondAttribute="trailing" constant="13" id="ibR-ms-3md"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ffd-Wh-XqB" secondAttribute="bottom" constant="27" id="ktO-w6-Dse"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FO1-zZ-ZWa" customClass="BorderedView" customModule="BorderedView">
                                                 <rect key="frame" x="13" y="176" width="200" height="30"/>
@@ -360,21 +375,13 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like-heart" translatesAutoresizingMaskIntoConstraints="NO" id="Jtc-Vg-FAb">
-                                                <rect key="frame" x="325" y="176" width="34" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Ohg-ua-BPC"/>
-                                                    <constraint firstAttribute="width" constant="34" id="j6N-DS-mfr"/>
-                                                </constraints>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Dwy-WU-1Sj" firstAttribute="leading" secondItem="Oui-A8-4PP" secondAttribute="leading" id="3Hh-Cq-WcL"/>
                                             <constraint firstAttribute="trailing" secondItem="Dwy-WU-1Sj" secondAttribute="trailing" id="7fI-qu-pZW"/>
-                                            <constraint firstAttribute="trailing" secondItem="Jtc-Vg-FAb" secondAttribute="trailing" constant="16" id="9vi-dY-eg9"/>
-                                            <constraint firstItem="Jtc-Vg-FAb" firstAttribute="top" secondItem="Dwy-WU-1Sj" secondAttribute="bottom" constant="-58" id="FdR-8c-b3y"/>
                                             <constraint firstItem="Dwy-WU-1Sj" firstAttribute="top" secondItem="Oui-A8-4PP" secondAttribute="top" id="KIA-m6-zZ4"/>
+                                            <constraint firstItem="ffd-Wh-XqB" firstAttribute="leading" secondItem="FO1-zZ-ZWa" secondAttribute="trailing" constant="112" id="NFd-SW-NNw"/>
                                             <constraint firstItem="9WE-BM-9qJ" firstAttribute="bottom" secondItem="Dwy-WU-1Sj" secondAttribute="bottom" id="POl-tS-W5K"/>
                                             <constraint firstItem="9WE-BM-9qJ" firstAttribute="trailing" secondItem="Dwy-WU-1Sj" secondAttribute="trailing" id="S6H-w6-U08"/>
                                             <constraint firstItem="FO1-zZ-ZWa" firstAttribute="top" secondItem="XEQ-6u-cio" secondAttribute="bottom" constant="10" id="SRa-qb-BEW"/>
@@ -385,6 +392,11 @@
                                             <constraint firstItem="XEQ-6u-cio" firstAttribute="leading" secondItem="Oui-A8-4PP" secondAttribute="leading" constant="13" id="kVS-c4-9T6"/>
                                             <constraint firstItem="FO1-zZ-ZWa" firstAttribute="leading" secondItem="Oui-A8-4PP" secondAttribute="leading" constant="13" id="wVO-Af-vxb"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="NFd-SW-NNw"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R16-yM-jjs">
                                         <rect key="frame" x="0.0" y="234" width="375" height="128"/>
@@ -470,15 +482,16 @@
                     <size key="freeformSize" width="375" height="810"/>
                     <connections>
                         <outlet property="detailsHeightConstraint" destination="ZtV-rB-fcG" id="RQ2-9h-oZC"/>
+                        <outlet property="favoriteButton" destination="ffd-Wh-XqB" id="Adl-tM-i7P"/>
                         <outlet property="genresHeightConstraint" destination="IdR-FY-ROw" id="IaD-X8-6oZ"/>
                         <outlet property="imageShow" destination="Dwy-WU-1Sj" id="Soy-pS-cTe"/>
-                        <outlet property="likeHeart" destination="Jtc-Vg-FAb" id="Kpe-Ro-2xS"/>
                         <outlet property="overviewHeightConstraint" destination="9SV-QE-Eho" id="WKG-aF-DKl"/>
                         <outlet property="ratingLabel" destination="d9a-Fs-Ki8" id="5wv-xC-SfS"/>
                         <outlet property="ratingStars" destination="VlL-gR-9Nc" id="lK5-Km-7K1"/>
                         <outlet property="seasonsHeightConstraint" destination="NWY-mw-PN8" id="f1d-kj-zOV"/>
                         <outlet property="showTitle" destination="JCR-39-Z6n" id="GfP-lb-MCP"/>
                         <outlet property="showYear" destination="XEQ-6u-cio" id="miz-Oi-6iR"/>
+                        <segue destination="uKG-NG-QUw" kind="show" identifier="show_episodes" id="kYc-5w-48x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1b-BY-KZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -616,7 +629,6 @@
                                             <outlet property="seasonImage" destination="8D6-1v-jHB" id="xWB-md-IKa"/>
                                             <outlet property="seasonNumEp" destination="Bhw-yT-ely" id="MsQ-Rl-wYb"/>
                                             <outlet property="seasonTitle" destination="gup-18-vul" id="yW6-lj-e51"/>
-                                            <segue destination="uKG-NG-QUw" kind="show" identifier="show_episode" id="T5o-fA-9NV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -648,7 +660,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5g0-Hg-GXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499.5" y="1072"/>
+            <point key="canvasLocation" x="998.5" y="798"/>
         </scene>
         <!--Show Genres View Controller-->
         <scene sceneID="f0b-3m-yEx">

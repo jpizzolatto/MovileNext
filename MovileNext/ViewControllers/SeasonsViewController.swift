@@ -9,9 +9,15 @@
 import UIKit
 import TraktModels
 
+protocol SeasonsViewControllerDelegate: class {
+    func seasonsController(vc: SeasonsViewController, didSelectedSeason seasons: Season)
+}
+
 class SeasonsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ShowInternalViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    weak var delegate : SeasonsViewControllerDelegate?
     
     var selectedShow : Show?
     var seasonsList : [Season] = []
@@ -23,22 +29,6 @@ class SeasonsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    // TEMPORARY SEGUE FOR LIST OF EPISODES
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue == Segue.show_episode {
-            if let cell = sender as? UITableViewCell,
-                indexPath = tableView.indexPathForCell(cell) {
-                    
-                    let vc = segue.destinationViewController as! EpisodesListViewController
-                    vc.selectedShow = selectedShow
-                    vc.seasonNumber = seasonsList[indexPath.row].number
-                    
-                    self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            }
-        }
-    }
-    
     func intrinsicContentSize() -> CGSize {
         return tableView.contentSize
     }
@@ -48,6 +38,12 @@ class SeasonsViewController: UIViewController, UITableViewDataSource, UITableVie
         self.selectedShow = show
         self.seasonsList = seasons
         tableView.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let season = seasonsList[indexPath.row]
+        delegate?.seasonsController(self, didSelectedSeason: season)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

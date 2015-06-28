@@ -53,10 +53,13 @@ class EpisodeViewController: UIViewController {
     
     @IBAction func sharePressed(sender: UIBarButtonItem) {
         
-        let url = NSURL(string: "http://www.apple.com")!
-        let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-        
-        presentViewController(vc, animated: true, completion: nil)
+        if let imdb = selectedEpisode?.identifiers?.imdb {
+            
+            let url = NSURL(string: "http://www.imdb.com/title/\(imdb)")!
+            let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            
+            presentViewController(vc, animated: true, completion: nil)
+        }
     }
 
 }

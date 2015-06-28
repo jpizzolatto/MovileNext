@@ -11,14 +11,14 @@ import TraktModels
 import FloatRatingView
 import Kingfisher
 
-class DetailShowViewController: UIViewController {
+class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate {
     
     @IBOutlet weak var showTitle: UINavigationItem!
     @IBOutlet weak var imageShow: UIImageView!
-    @IBOutlet weak var likeHeart: UIImageView!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var ratingStars: FloatRatingView!
     @IBOutlet weak var showYear: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     private weak var overviewViewController : OverviewShowViewController!
     private weak var genresViewControler : ShowGenresViewController!
@@ -37,21 +37,53 @@ class DetailShowViewController: UIViewController {
     
     var selectedShow : Show?
     var seasons : [Season] = []
+    private var selectedSeason : Season!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         showTitle.title = selectedShowTitle
+        CheckFavoriteShow(showID!)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        overviewHeightConstraint.constant = overviewViewController.intrinsicContentSize().height + 10
-        seasonsHeightConstraint.constant = seasonsViewController.intrinsicContentSize().height + 30
-        genresHeightConstraint.constant = genresViewControler.intrinsicContentSize().height + 10
+        overviewHeightConstraint.constant = overviewViewController.intrinsicContentSize().height + 30
+        seasonsHeightConstraint.constant = seasonsViewController.intrinsicContentSize().height + 50
+        genresHeightConstraint.constant = genresViewControler.intrinsicContentSize().height + 30
         detailsHeightConstraint.constant = detailsViewController.intrinsicContentSize().height
     }
+    
+    func CheckFavoriteShow(id : String) -> Void {
+        
+        let index = find(favoriteShowsID, id)
+        
+        if index != nil {
+            favoriteButton.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
+        }
+        else {
+            favoriteButton.setImage(UIImage(named: "like-heart"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBAction func favoriteClicked(sender: UIButton) {
+        
+        if let id = selectedShow?.identifiers.slug {
+            
+            let index = find(favoriteShowsID, id)
+            
+            if index == nil {
+                favoriteShowsID.append(id)
+            }
+            else {
+                favoriteShowsID.removeAtIndex(index!)
+            }
+            
+            CheckFavoriteShow(id)
+        }
+    }
+    
     
     // Loading one show before view appear, is this the rigth way?
     override func viewWillAppear(animated: Bool) {
@@ -124,6 +156,12 @@ class DetailShowViewController: UIViewController {
         showYear.text = String(show.year)
     }
     
+    func seasonsController(vc: SeasonsViewController, didSelectedSeason season: Season) {
+        
+        selectedSeason = season
+        performSegueWithIdentifier(Segue.show_episodes.identifier!, sender: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue == Segue.overview_container {
@@ -135,6 +173,7 @@ class DetailShowViewController: UIViewController {
         else if segue == Segue.seasons_container {
             
             seasonsViewController = segue.destinationViewController as! SeasonsViewController
+            seasonsViewController.delegate = self
             seasonsViewController.selectedShow = selectedShow
             seasonsViewController.seasonsList = seasons
             
@@ -150,6 +189,12 @@ class DetailShowViewController: UIViewController {
             detailsViewController = segue.destinationViewController as! ShowDetailsViewController
             detailsViewController.selectedShow = selectedShow
             detailsViewController.seasons = seasons
+        }
+        else if segue == Segue.show_episodes {
+            
+            var vc = segue.destinationViewController as! EpisodesListViewController
+            vc.seasonNumber = selectedSeason!.number
+            vc.selectedShow = selectedShow
         }
     }
     
