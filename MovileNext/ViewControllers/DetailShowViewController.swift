@@ -32,6 +32,8 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
     
     private let httpClient = TraktHTTPClient()
     
+    private let favManager = FavoritesManager()
+    
     var showID : String?
     var selectedShowTitle = ""
     
@@ -57,9 +59,7 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
     
     func CheckFavoriteShow(id : String) -> Void {
         
-        let index = find(favoriteShowsID, id)
-        
-        if index != nil {
+        if favManager.favoriteIdentifiers.contains(id) {
             favoriteButton.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
         }
         else {
@@ -71,13 +71,11 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
         
         if let id = selectedShow?.identifiers.slug {
             
-            let index = find(favoriteShowsID, id)
-            
-            if index == nil {
-                favoriteShowsID.append(id)
+            if favManager.favoriteIdentifiers.contains(id) {
+                favManager.removeIdentifier(id)
             }
             else {
-                favoriteShowsID.removeAtIndex(index!)
+                favManager.addIdentifier(id)
             }
             
             CheckFavoriteShow(id)

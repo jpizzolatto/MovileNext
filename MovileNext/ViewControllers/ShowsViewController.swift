@@ -9,8 +9,6 @@
 import UIKit
 import TraktModels
 
-var favoriteShowsID : [String] = []
-
 class ShowsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var showsView: UICollectionView!
