@@ -8,71 +8,147 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-MovileNext-Argo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-MovileNext-BorderedView-BorderedView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>Pods-MovileNext-BorderedView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 		<key>Pods-MovileNext-Box.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pods-MovileNext-FloatRatingView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
 		</dict>
 		<key>Pods-MovileNext-ISO8601DateFormatter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-MovileNext-Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Pods-MovileNext-OverlayView-OverlayView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
+		<key>Pods-MovileNext-OverlayView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
 		</dict>
 		<key>Pods-MovileNext-Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>Pods-MovileNext-Runes.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Pods-MovileNext-TagListView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
 		</dict>
 		<key>Pods-MovileNext-TraktModels-TraktModels.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>Pods-MovileNext-TraktModels.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>Pods-MovileNext.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-unit_tests-Nimble.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>12</integer>
 		</dict>
 		<key>Pods-unit_tests-OHHTTPStubs.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>Pods-unit_tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>00B527C72CE7C6B84B29EE4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>022EDA55E87DF8D207EFF2F3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>18A7E23CB8D69E18A1C74D99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4104172AB59A645935804800</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>413643D6355A0D4D751EB88B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +158,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>527BDB053DB2ECEF6E03974A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>540F6D50653F0F58F87729EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5FD8C76AD0076165250CDC1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>67C845C8D65E068BD144033D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6DE60F1BB7FA77F289142A61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6DF3BF5BF539D951098B9C25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>738A981A7CAF36A93F97B330</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>764BD1E1EF27C3AF5125A7C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +208,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8F079AB27749D2F372F0D421</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F3781564F2DCFF14E9C2BA8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A456BDEA6EB4210A701BA312</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>A8FA7F51652932F68D736A99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A9652203D5CAFFE0EE16BD87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B0EE531A5D0EFE9DC9B07751</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +248,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>DA99E19A4EFE7DABAB54EEEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DE3AC1053163E2A81841DD41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFC1B7A98E20807D9D15CACB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E29A7B1D08508E662F929C4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E8B6E84FC6285AE713C5E47F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC810F1A38A317B28368AACF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

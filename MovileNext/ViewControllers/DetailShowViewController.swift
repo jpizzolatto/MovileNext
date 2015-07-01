@@ -34,8 +34,10 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
     
     private let favManager = FavoritesManager()
     
+    // Properties from previous view controller
     var showID : String?
     var selectedShowTitle = ""
+    var showIndex = -1
     
     var selectedShow : Show?
     var seasons : [Season] = []
@@ -45,7 +47,7 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
         super.viewDidLoad()
         
         showTitle.title = selectedShowTitle
-        CheckFavoriteShow(showID!)
+        CheckFavoriteShow()
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,9 +59,9 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
         detailsHeightConstraint.constant = detailsViewController.intrinsicContentSize().height
     }
     
-    func CheckFavoriteShow(id : String) -> Void {
+    func CheckFavoriteShow() -> Void {
         
-        if favManager.favoriteIdentifiers.contains(id) {
+        if favManager.favoriteIdentifiers.contains(self.showIndex) {
             favoriteButton.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
         }
         else {
@@ -69,17 +71,14 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
     
     @IBAction func favoriteClicked(sender: UIButton) {
         
-        if let id = selectedShow?.identifiers.slug {
-            
-            if favManager.favoriteIdentifiers.contains(id) {
-                favManager.removeIdentifier(id)
-            }
-            else {
-                favManager.addIdentifier(id)
-            }
-            
-            CheckFavoriteShow(id)
+        if favManager.favoriteIdentifiers.contains(self.showIndex) {
+            favManager.removeIdentifier(self.showIndex)
         }
+        else {
+            favManager.addIdentifier(self.showIndex)
+        }
+        
+        CheckFavoriteShow()
     }
     
     
@@ -102,8 +101,6 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
                 // Reload the Genres container
                 self?.genresViewControler.selectedShow = show
                 self?.genresViewControler.LoadGenres()
-                
-                self?.viewDidLayoutSubviews()
                 
                 if let showID = show.identifiers.slug {
                     

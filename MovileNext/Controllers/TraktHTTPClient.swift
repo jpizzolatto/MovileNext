@@ -16,7 +16,7 @@ private enum Router : URLRequestConvertible {
     
     static let baseURLString = "https://api-v2launch.trakt.tv/"
     
-    case PopularShows()
+    case PopularShows(Int)
     case Show(String)
     case Seasons(String)
     case Season(String, Int)
@@ -27,8 +27,9 @@ private enum Router : URLRequestConvertible {
         let (path: String, parameters: [String: AnyObject]?, method: Alamofire.Method) = {
             switch self {
                 
-            case .PopularShows():
-                return ("shows/popular", ["extended": "images", "limit" : "50", "page" : "1"], .GET)
+            case .PopularShows(let page):
+//                let limit = Int(page) * 50
+                return ("shows/popular", ["extended": "images", "limit" : "50", "page" : String(page)], .GET)
                 
             case .Show(let id):
                 return ("shows/\(id)", ["extended": "images,full"], .GET)
@@ -126,9 +127,9 @@ class TraktHTTPClient {
     
     // METHODS
     
-    func getPopularShows(completion: ((Result<[Show], NSError?>) -> Void)?) {
+    func getPopularShows(page: Int, completion: ((Result<[Show], NSError?>) -> Void)?) {
         
-        getJSONElements(Router.PopularShows(), completion: completion)
+        getJSONElements(Router.PopularShows(page), completion: completion)
     }
     
     func getShow(id: String, completion: ((Result<Show, NSError?>) -> Void)?) {

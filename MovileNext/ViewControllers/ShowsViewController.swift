@@ -38,7 +38,7 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     private func loadShows() {
         
-        httpClient.getPopularShows({[weak self] result in
+        httpClient.getPopularShows(1, completion: {[weak self] result in
             
             if let shows = result.value {
                 self?.popularShows = shows
@@ -62,6 +62,7 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
                         
                         vc.showID = id
                         vc.selectedShowTitle = popularShows[indexPath.row].title
+                        vc.showIndex = indexPath.row
                     }
                     
                     self.showsView.deselectItemAtIndexPath(indexPath, animated: true)
