@@ -41,7 +41,7 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
     
     var selectedShow : Show?
     var seasons : [Season] = []
-    private var selectedSeason : Season!
+    var selectedSeason : Season?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,7 +193,7 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
         else if segue == Segue.show_episodes {
             
             var vc = segue.destinationViewController as! EpisodesListViewController
-            vc.seasonNumber = selectedSeason!.number
+            vc.selectedSeason = selectedSeason
             vc.selectedShow = selectedShow
         }
     }

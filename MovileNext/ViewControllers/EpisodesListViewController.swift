@@ -8,28 +8,69 @@
 
 import UIKit
 import TraktModels
+import FloatRatingView
+import Kingfisher
 
 class EpisodesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableVIew: UITableView!
     
+    @IBOutlet weak var seasonPoster: UIImageView!
+    @IBOutlet weak var seasonRatingNumber: UILabel!
+    @IBOutlet weak var seasonRatingStar: FloatRatingView!
+    @IBOutlet weak var seasonYear: UILabel!
+    @IBOutlet weak var seasonImage: UIImageView!
+    
     private let httpClient = TraktHTTPClient()
     private var episodesList : [Episode] = []
     
+    var selectedSeason : Season?
     var selectedShow : Show?
-    var seasonNumber: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         showEpisodes()
+        
+        if let season = selectedSeason {
+            seasonYear.text = "Season \(season.number)"
+        }
+        
+        let placeholder = UIImage(named: "poster")?.darkenImage()
+        if let image = selectedSeason?.poster?.fullImageURL {
+            seasonImage.kf_setImageWithURL(image, placeholderImage: placeholder)
+        }
+        else {
+            seasonImage.image = placeholder
+        }
+        
+        let placeholderPoster = UIImage(named: "bg")?.darkenImage()
+        if let image = selectedShow?.thumbImageURL {
+            seasonPoster.kf_setImageWithURL(
+                image,
+                placeholderImage: placeholderPoster,
+                optionsInfo: nil,
+                progressBlock: nil,
+                completionHandler : { (imageLoaded, _, _,  _) in
+                    self.seasonPoster.image = imageLoaded!.darkenImage()
+            })
+        }
+        else {
+            seasonPoster.image = placeholderPoster
+        }
+        
+        if let rate = selectedSeason?.rating {
+            seasonRatingNumber.text = NSString(format: "%.01f", rate) as String
+            seasonRatingStar.rating = rate
+        }
     }
     
     func showEpisodes() {
      
-        if let showID = self.selectedShow?.identifiers.slug {
+        if let showID = self.selectedShow?.identifiers.slug,
+               season = self.selectedSeason {
             
-            httpClient.getEpisodes(showID, season: self.seasonNumber!, completion: {
+            httpClient.getEpisodes(showID, season: season.number, completion: {
                 [weak self] result in
                 
                 if let episodes = result.value {
@@ -66,7 +107,7 @@ class EpisodesListViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier,forIndexPath: indexPath) as! EpisodeTableViewCell
         
         let episode = episodesList[indexPath.row]
-        cell.loadEpisode(episode, season: seasonNumber!)
+        cell.loadEpisode(episode, season: selectedSeason!.number)
         
         return cell
     }

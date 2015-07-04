@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileNext/Models/FavoritesManager.swift"
-            timestampString = "457217807.403004"
+            timestampString = "457717676.899912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "removeIdentifier(_:)"
             landmarkType = "5">
          </BreakpointContent>

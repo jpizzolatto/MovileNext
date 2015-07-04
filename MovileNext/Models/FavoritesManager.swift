@@ -10,6 +10,7 @@ import Foundation
 
 class FavoritesManager {
     
+    let favoritesChangedNotificationName = "changed"
     private var userDefaults = NSUserDefaults.standardUserDefaults()
     
     var favoriteIdentifiers: Set<String> {
@@ -45,6 +46,8 @@ class FavoritesManager {
         
         userDefaults.setObject(idsArray, forKey: "ids")
         userDefaults.synchronize()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(favoritesChangedNotificationName, object: nil)
     }
     
     func removeIdentifier(identifier: String) {
@@ -62,6 +65,8 @@ class FavoritesManager {
                 userDefaults.synchronize()
             }
         }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(favoritesChangedNotificationName, object: nil)
 
     }
 }

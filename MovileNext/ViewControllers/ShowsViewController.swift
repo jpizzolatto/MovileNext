@@ -16,6 +16,7 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     var allShows : [Show] = []
     var visibleShows : [Show] = []
+    var currentPage = 1
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     private let httpClient = TraktHTTPClient()
@@ -36,15 +37,19 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.showsView.addSubview(refreshControl)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "favoritesChanged", name: favManager.favoritesChangedNotificationName, object: nil)
+        
         loadShows()
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: favManager.favoritesChangedNotificationName, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.hideBottomHairline()
-        
-        indexChanged(segmentedControl)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -53,6 +58,9 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         navigationController?.navigationBar.showBottomHairline()
     }
     
+    func favoritesChanged() -> Void {
+        indexChanged(segmentedControl)
+    }
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
         
@@ -74,6 +82,8 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func refresh(sender:AnyObject) {
         
+        currentPage = 1
+        self.allShows.removeAll(keepCapacity: true)
         self.visibleShows.removeAll(keepCapacity: true)
         self.showsView.reloadData()
         
@@ -82,17 +92,34 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     private func loadShows() {
         
-        httpClient.getPopularShows(1, completion: {[weak self] result in
+        httpClient.getPopularShows(currentPage, completion: {[weak self] result in
             
             if let shows = result.value {
-                self?.allShows = shows
-                self?.visibleShows = shows
-                self?.showsView.reloadData()
+                self?.allShows += shows
+                self?.indexChanged(self!.segmentedControl)
                 
                 self?.showsView.reloadSections(NSIndexSet(index: 0))
                 self?.refreshControl.endRefreshing()
+
+                self?.loadingMore = false
             }
         })
+    }
+    
+    var loadingMore = false
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        var scrollViewHeight = scrollView.bounds.size.height
+        var scrollContentSizeHeight = scrollView.contentSize.height
+        var bottomInset = scrollView.contentInset.bottom
+        var scrollViewBottomOffset = scrollContentSizeHeight + bottomInset - scrollViewHeight
+        
+        if scrollView.contentOffset.y > scrollViewBottomOffset && !loadingMore {
+            
+            loadingMore = true
+            currentPage++
+            loadShows()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

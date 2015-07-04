@@ -31,6 +31,7 @@ class ShowGenresViewController: UIViewController, ShowInternalViewController {
     
     func LoadGenres() {
         
+        genresList.removeAllTags()
         if let show = self.selectedShow {
             for genre in show.genres! {
                 genresList.addTag(genre)
