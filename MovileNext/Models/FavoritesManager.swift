@@ -12,15 +12,15 @@ class FavoritesManager {
     
     private var userDefaults = NSUserDefaults.standardUserDefaults()
     
-    var favoriteIdentifiers: Set<Int> {
+    var favoriteIdentifiers: Set<String> {
         
         get {
             var ids: AnyObject? = userDefaults.objectForKey("ids")
             
-            var setIds : Set<Int> = []
+            var setIds : Set<String> = []
             
             if ids != nil {
-                for id in ids as! [Int] {
+                for id in ids as! [String] {
                     setIds.insert(id)
                 }
             }
@@ -29,14 +29,14 @@ class FavoritesManager {
         }
     }
     
-    func addIdentifier(identifier: Int) {
+    func addIdentifier(identifier: String) {
         
         var ids: AnyObject? = userDefaults.objectForKey("ids")
-        var idsArray : [Int] = []
+        var idsArray : [String] = []
         
         if ids != nil {
             
-            idsArray = ids as! [Int]
+            idsArray = ids as! [String]
             idsArray.append(identifier)
         }
         else {
@@ -47,13 +47,13 @@ class FavoritesManager {
         userDefaults.synchronize()
     }
     
-    func removeIdentifier(identifier: Int) {
+    func removeIdentifier(identifier: String) {
         
         var ids: AnyObject? = userDefaults.objectForKey("ids")
         
         if ids != nil {
             
-            var idsArray = ids as! [Int]
+            var idsArray = ids as! [String]
             
             if let index = find(idsArray, identifier) {
                 idsArray.removeAtIndex(index)

@@ -61,21 +61,26 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
     
     func CheckFavoriteShow() -> Void {
         
-        if favManager.favoriteIdentifiers.contains(self.showIndex) {
-            favoriteButton.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
-        }
-        else {
-            favoriteButton.setImage(UIImage(named: "like-heart"), forState: UIControlState.Normal)
+        if let id = showID {
+            if favManager.favoriteIdentifiers.contains(id) {
+                favoriteButton.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
+            }
+            else {
+                favoriteButton.setImage(UIImage(named: "like-heart"), forState: UIControlState.Normal)
+            }
         }
     }
     
     @IBAction func favoriteClicked(sender: UIButton) {
         
-        if favManager.favoriteIdentifiers.contains(self.showIndex) {
-            favManager.removeIdentifier(self.showIndex)
-        }
-        else {
-            favManager.addIdentifier(self.showIndex)
+        if let id = showID {
+            
+            if favManager.favoriteIdentifiers.contains(id) {
+                favManager.removeIdentifier(id)
+            }
+            else {
+                favManager.addIdentifier(id)
+            }
         }
         
         CheckFavoriteShow()
