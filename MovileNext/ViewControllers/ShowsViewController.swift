@@ -11,19 +11,25 @@ import TraktModels
 
 class ShowsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var progressLoad: UIActivityIndicatorView!
     @IBOutlet weak var showsView: UICollectionView!
     var refreshControl:UIRefreshControl!
     
     var allShows : [Show] = []
     var visibleShows : [Show] = []
     var currentPage = 1
+    var lastPage : Int?
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    private var userDefaults = NSUserDefaults.standardUserDefaults()
     private let httpClient = TraktHTTPClient()
     private let favManager = FavoritesManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        progressLoad.startAnimating()
         
         let apperance = UIToolbar.appearance()
         apperance.barTintColor = UIColor.mup_orangeColor()
@@ -39,7 +45,16 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "favoritesChanged", name: favManager.favoritesChangedNotificationName, object: nil)
         
-        loadShows()
+        let savedLastPage: AnyObject? = userDefaults.objectForKey("lastPage")
+        if savedLastPage == nil {
+            userDefaults.setInteger(currentPage, forKey: "lastPage")
+            lastPage = currentPage
+        }
+        else {
+            lastPage = savedLastPage as? Int
+        }
+        
+        loadShows(currentPage)
     }
     
     deinit {
@@ -82,32 +97,44 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func refresh(sender:AnyObject) {
         
-        currentPage = 1
+        loadingMore = true
         self.allShows.removeAll(keepCapacity: true)
         self.visibleShows.removeAll(keepCapacity: true)
         self.showsView.reloadData()
+        currentPage = 1
         
-        loadShows()
+        loadShows(1)
     }
     
-    private func loadShows() {
+    private func loadShows(page: Int) {
         
-        httpClient.getPopularShows(currentPage, completion: {[weak self] result in
+        httpClient.getPopularShows(page, completion: {[weak self] result in
             
             if let shows = result.value {
                 self?.allShows += shows
-                self?.indexChanged(self!.segmentedControl)
                 
-                self?.showsView.reloadSections(NSIndexSet(index: 0))
-                self?.refreshControl.endRefreshing()
-
-                self?.loadingMore = false
+                if page < self?.lastPage {
+                    self?.currentPage++
+                    let ind = page + 1
+                    self?.loadShows(ind)
+                }
+                else {
+                    self?.indexChanged(self!.segmentedControl)
+                    self?.refreshControl.endRefreshing()
+                    self?.loadingMore = false
+                    self?.progressLoad.stopAnimating()
+                }
             }
         })
     }
     
     var loadingMore = false
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        // It's favorite tab, ignore load more pages
+        if segmentedControl.selectedSegmentIndex == 1 {
+            return
+        }
         
         var scrollViewHeight = scrollView.bounds.size.height
         var scrollContentSizeHeight = scrollView.contentSize.height
@@ -118,7 +145,11 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
             
             loadingMore = true
             currentPage++
-            loadShows()
+            
+            // Save the last page into the database
+            userDefaults.setInteger(currentPage, forKey: "lastPage")
+            
+            loadShows(currentPage)
         }
     }
     

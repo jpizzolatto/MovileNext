@@ -103,16 +103,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="3aT-V7-Ina">
-                                <rect key="frame" x="0.0" y="64" width="375" height="234"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="154"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="234" id="NtZ-wc-AFA"/>
+                                    <constraint firstAttribute="height" constant="154" id="NtZ-wc-AFA"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bi3-3R-S2t" customClass="BorderedView" customModule="BorderedView">
-                                <rect key="frame" x="107" y="251" width="255" height="30"/>
+                                <rect key="frame" x="107" y="171" width="252" height="30"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XrF-Wy-Mfb" customClass="FloatRatingView" customModule="FloatRatingView">
-                                        <rect key="frame" x="10" y="10" width="203" height="10"/>
+                                        <rect key="frame" x="10" y="10" width="200" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="4Og-f2-g8e"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="star-gray"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="star-yellow"/>
@@ -132,7 +135,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXc-no-ESo">
-                                        <rect key="frame" x="222" y="5" width="26" height="18"/>
+                                        <rect key="frame" x="219" y="5" width="26" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="2v4-T0-gT5"/>
                                             <constraint firstAttribute="width" constant="30" id="Q0D-ce-Gyv"/>
@@ -142,8 +145,8 @@
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="Q0D-ce-Gyv"/>
                                                 <exclude reference="2v4-T0-gT5"/>
+                                                <exclude reference="Q0D-ce-Gyv"/>
                                             </mask>
                                         </variation>
                                     </label>
@@ -184,13 +187,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EPISODES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3w-0V-bPO">
-                                <rect key="frame" x="13" y="311" width="52" height="13"/>
+                                <rect key="frame" x="13" y="231" width="52" height="13"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-hW-6tb">
-                                <rect key="frame" x="0.0" y="337" width="375" height="330"/>
+                                <rect key="frame" x="0.0" y="257" width="375" height="410"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodeCell" textLabel="ikS-BG-DbK" detailTextLabel="dPD-qb-j7o" style="IBUITableViewCellStyleSubtitle" id="rYb-Al-SUs" customClass="EpisodeTableViewCell" customModule="MovileNext" customModuleProvider="target">
@@ -207,7 +210,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPD-qb-j7o">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -223,14 +226,14 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="c3e-UJ-krH">
-                                <rect key="frame" x="13" y="160" width="80" height="121"/>
+                                <rect key="frame" x="13" y="80" width="80" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="A0f-gf-2lR"/>
                                     <constraint firstAttribute="height" constant="121" id="ncM-sL-7ak"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vq9-dS-0Et">
-                                <rect key="frame" x="107" y="220" width="255" height="20.5"/>
+                                <rect key="frame" x="107" y="140" width="7" height="20.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -250,7 +253,9 @@
                             <constraint firstItem="Bi3-3R-S2t" firstAttribute="top" secondItem="3aT-V7-Ina" secondAttribute="bottom" constant="-47" id="QTs-QS-qCs"/>
                             <constraint firstItem="Bi3-3R-S2t" firstAttribute="leading" secondItem="c3e-UJ-krH" secondAttribute="trailing" constant="14" id="VbM-M8-Qtg"/>
                             <constraint firstItem="Bi3-3R-S2t" firstAttribute="top" secondItem="Vq9-dS-0Et" secondAttribute="bottom" constant="10" id="YUl-te-9xr"/>
+                            <constraint firstItem="Vq9-dS-0Et" firstAttribute="leading" secondItem="c3e-UJ-krH" secondAttribute="trailing" constant="14" id="ZyI-7s-JDJ"/>
                             <constraint firstItem="k5U-hW-6tb" firstAttribute="leading" secondItem="MuO-Bq-tVn" secondAttribute="leading" id="a5R-JT-2Dc"/>
+                            <constraint firstItem="Bi3-3R-S2t" firstAttribute="leading" secondItem="c3e-UJ-krH" secondAttribute="trailing" constant="14" id="bLG-vJ-EN8"/>
                             <constraint firstItem="Vq9-dS-0Et" firstAttribute="leading" secondItem="c3e-UJ-krH" secondAttribute="trailing" constant="14" id="gS2-sQ-a5S"/>
                             <constraint firstAttribute="trailing" secondItem="Bi3-3R-S2t" secondAttribute="trailing" constant="13" id="hzm-iZ-WPh"/>
                             <constraint firstItem="c3e-UJ-krH" firstAttribute="top" secondItem="3aT-V7-Ina" secondAttribute="bottom" constant="-138" id="ifk-uJ-ffe"/>
@@ -259,6 +264,14 @@
                             <constraint firstAttribute="trailing" secondItem="Vq9-dS-0Et" secondAttribute="trailing" constant="13" id="qu3-Qj-OhA"/>
                             <constraint firstItem="cyv-3j-cbP" firstAttribute="trailing" secondItem="3aT-V7-Ina" secondAttribute="trailing" id="zi3-Pl-04D"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gS2-sQ-a5S"/>
+                                <exclude reference="qu3-Qj-OhA"/>
+                                <exclude reference="VbM-M8-Qtg"/>
+                                <exclude reference="hzm-iZ-WPh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Episodes" id="Qw3-FH-aFa"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -333,6 +346,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="13" maxX="0.0" maxY="13"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="l45-XW-8D1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShowCell" id="MLW-8s-MY4" customClass="ShowItemCollectionViewCell" customModule="MovileNext" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -397,6 +415,7 @@
                     <navigationItem key="navigationItem" title="Shows" id="PkL-MY-khl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="progressLoad" destination="l45-XW-8D1" id="TOp-on-wec"/>
                         <outlet property="segmentedControl" destination="lZp-gc-guf" id="Knv-HB-JuH"/>
                         <outlet property="showsView" destination="Gki-IZ-Zxa" id="4oN-ch-lJg"/>
                     </connections>
@@ -683,7 +702,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gup-18-vul">
                                                     <rect key="frame" x="83" y="10" width="92" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPU-iN-QyL" customClass="BorderedView" customModule="BorderedView">
@@ -886,37 +905,37 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Broadcastring:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3s-xc-OO4">
                                 <rect key="frame" x="13" y="23" width="349" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqz-Yb-byb">
                                 <rect key="frame" x="13" y="52" width="349" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seasons:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjr-YX-0bn">
                                 <rect key="frame" x="13" y="81" width="349" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started in:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhx-IZ-xPT">
                                 <rect key="frame" x="13" y="111" width="349" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utu-n5-2ds">
                                 <rect key="frame" x="13" y="140.5" width="349" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Homepage:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uB-Lb-6Z1">
                                 <rect key="frame" x="13" y="170" width="349" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
