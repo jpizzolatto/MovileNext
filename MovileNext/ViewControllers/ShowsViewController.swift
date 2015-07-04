@@ -14,11 +14,22 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var showsView: UICollectionView!
     var refreshControl:UIRefreshControl!
     
-    var popularShows : [Show] = []
+    var allShows : [Show] = []
+    var visibleShows : [Show] = []
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     private let httpClient = TraktHTTPClient()
+    private let favManager = FavoritesManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let apperance = UIToolbar.appearance()
+        apperance.barTintColor = UIColor.mup_orangeColor()
+        
+        let attrs = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        let apperanceBtn = UISegmentedControl.appearance()
+        apperanceBtn.tintColor = UIColor.whiteColor()
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "")
@@ -28,9 +39,42 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         loadShows()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.hideBottomHairline()
+        
+        indexChanged(segmentedControl)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.showBottomHairline()
+    }
+    
+    
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex
+        {
+        case 0:
+            self.visibleShows = self.allShows
+            self.showsView.reloadData()
+            
+        case 1:
+            let favorites = self.allShows.filter { $0 != nil }.filter { self.favManager.favoriteIdentifiers.contains($0.identifiers.slug!) }
+            self.visibleShows = favorites
+            self.showsView.reloadData()
+            
+        default:
+            break; 
+        } 
+    }
+    
     func refresh(sender:AnyObject) {
         
-        self.popularShows.removeAll(keepCapacity: true)
+        self.visibleShows.removeAll(keepCapacity: true)
         self.showsView.reloadData()
         
         loadShows()
@@ -41,7 +85,8 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         httpClient.getPopularShows(1, completion: {[weak self] result in
             
             if let shows = result.value {
-                self?.popularShows = shows
+                self?.allShows = shows
+                self?.visibleShows = shows
                 self?.showsView.reloadData()
                 
                 self?.showsView.reloadSections(NSIndexSet(index: 0))
@@ -58,10 +103,10 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
                    
                     let vc = segue.destinationViewController as! DetailShowViewController
                     
-                    if let id = popularShows[indexPath.row].identifiers.slug {
+                    if let id = visibleShows[indexPath.row].identifiers.slug {
                         
                         vc.showID = id
-                        vc.selectedShowTitle = popularShows[indexPath.row].title
+                        vc.selectedShowTitle = visibleShows[indexPath.row].title
                         vc.showIndex = indexPath.row
                     }
                     
@@ -71,7 +116,7 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.popularShows.count
+        return self.visibleShows.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -80,7 +125,7 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         let item = showsView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! ShowItemCollectionViewCell
         
-        let show = self.popularShows[indexPath.row]
+        let show = self.visibleShows[indexPath.row]
         item.loadShow(show)
         
         return item

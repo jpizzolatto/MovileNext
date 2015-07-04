@@ -30,6 +30,7 @@
 		CECDB27E1B3754CE00F73E18 /* UIImage+DarkenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDB27D1B3754CE00F73E18 /* UIImage+DarkenImage.swift */; };
 		CECE25001B4048B900484DBE /* ShowInternalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE24FF1B4048B900484DBE /* ShowInternalViewController.swift */; };
 		CECE25021B408DFF00484DBE /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE25011B408DFF00484DBE /* FavoritesManager.swift */; };
+		CEFBDA131B4816DB006E1EDA /* UINavigationBar+BottomHairline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBDA121B4816DB006E1EDA /* UINavigationBar+BottomHairline.swift */; };
 		DB9048A54D5E9A50FB894BB6 /* Pods_unit_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFC8A1F6FF06FBE128F08B /* Pods_unit_tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		CECDB27D1B3754CE00F73E18 /* UIImage+DarkenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+DarkenImage.swift"; sourceTree = "<group>"; };
 		CECE24FF1B4048B900484DBE /* ShowInternalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowInternalViewController.swift; sourceTree = "<group>"; };
 		CECE25011B408DFF00484DBE /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		CEFBDA121B4816DB006E1EDA /* UINavigationBar+BottomHairline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+BottomHairline.swift"; sourceTree = "<group>"; };
 		DE8960D3266B12E341B96EF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		FEA899828A63976EFD177B04 /* Pods-unit_tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,6 +273,7 @@
 			children = (
 				CECDB27D1B3754CE00F73E18 /* UIImage+DarkenImage.swift */,
 				CE8E4F371B2CAE20006F69A3 /* UIColor+MovileNext.swift */,
+				CEFBDA121B4816DB006E1EDA /* UINavigationBar+BottomHairline.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				CE7D042C1B3EE5D4007EA4BE /* DetailShowViewController.swift in Sources */,
 				CE8E4F3C1B2CB113006F69A3 /* EpisodeViewController.swift in Sources */,
 				CECE25001B4048B900484DBE /* ShowInternalViewController.swift in Sources */,
+				CEFBDA131B4816DB006E1EDA /* UINavigationBar+BottomHairline.swift in Sources */,
 				353426A7CC7C8CAFC5ACD9FF /* AppDelegate.swift in Sources */,
 				CE7D042E1B3EEC08007EA4BE /* OverviewShowViewController.swift in Sources */,
 				2CF0773C27B7E5356FCBD7ED /* Storyboards.swift in Sources */,
