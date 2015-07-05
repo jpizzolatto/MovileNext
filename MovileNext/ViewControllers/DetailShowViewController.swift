@@ -108,6 +108,15 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
     }
     
     
+    @IBAction func showTrailer(sender: AnyObject) {
+        
+        if let trailer = selectedShow?.trailerURL {
+            
+            UIApplication.sharedApplication().openURL(trailer)
+        }
+    }
+    
+    
     // Loading one show before view appear, is this the rigth way?
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

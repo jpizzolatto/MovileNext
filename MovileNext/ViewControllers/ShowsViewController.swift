@@ -171,6 +171,8 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
             userDefaults.setInteger(currentPage, forKey: "lastPage")
             
             loadShows(currentPage)
+            
+            groupNotifyToConcatenateShowsList()
         }
     }
     
