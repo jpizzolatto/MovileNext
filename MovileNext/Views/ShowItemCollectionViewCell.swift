@@ -21,7 +21,7 @@ class ShowItemCollectionViewCell: UICollectionViewCell {
         
         let placeholder = UIImage(named: "poster")
         
-        if let image = show.poster?.fullImageURL {
+        if let image = show.poster?.mediumImageURL {
             task = showImage.kf_setImageWithURL(image, placeholderImage: placeholder)
         }
         else {
