@@ -51,8 +51,8 @@ class EpisodesListViewController: UIViewController, UITableViewDelegate, UITable
                 placeholderImage: placeholderPoster,
                 optionsInfo: nil,
                 progressBlock: nil,
-                completionHandler : { (imageLoaded, _, _,  _) in
-                    self.seasonPoster.image = imageLoaded!.darkenImage()
+                completionHandler : { [weak self] (imageLoaded, _, _,  _) in
+                    self?.seasonPoster.image = imageLoaded!.darkenImage()
             })
         }
         else {

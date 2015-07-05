@@ -47,6 +47,10 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
         super.viewDidLoad()
         
         showTitle.title = selectedShowTitle
+        
+        favoriteButton.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Selected)
+        favoriteButton.setImage(UIImage(named: "like-heart"), forState: UIControlState.Normal)
+        
         CheckFavoriteShow()
     }
     
@@ -63,10 +67,10 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
         
         if let id = showID {
             if favManager.favoriteIdentifiers.contains(id) {
-                favoriteButton.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
+                favoriteButton.selected = true
             }
             else {
-                favoriteButton.setImage(UIImage(named: "like-heart"), forState: UIControlState.Normal)
+                favoriteButton.selected = false
             }
         }
     }
@@ -83,7 +87,10 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
             }
         }
         
-        CheckFavoriteShow()
+        let favorited = !sender.selected
+        UIView.transitionWithView(sender, duration: 0.4, options: .TransitionCrossDissolve, animations: {
+            sender.selected = favorited
+            }, completion: nil)
     }
     
     

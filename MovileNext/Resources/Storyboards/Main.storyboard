@@ -61,6 +61,7 @@
                             <constraint firstItem="YgH-C2-fTG" firstAttribute="leading" secondItem="bHj-hX-83E" secondAttribute="leading" constant="16" id="U5Y-7Q-mah"/>
                             <constraint firstItem="hhS-rj-SYW" firstAttribute="top" secondItem="CX2-c7-yPf" secondAttribute="bottom" id="aIc-XR-CrW"/>
                             <constraint firstAttribute="trailing" secondItem="Tds-tk-RPK" secondAttribute="trailing" constant="16" id="eV5-BN-Ems"/>
+                            <constraint firstItem="Tds-tk-RPK" firstAttribute="top" secondItem="hhS-rj-SYW" secondAttribute="bottom" constant="-38" id="hLz-1P-bNf"/>
                             <constraint firstItem="YgH-C2-fTG" firstAttribute="top" secondItem="hhS-rj-SYW" secondAttribute="bottom" constant="8" id="hTE-xU-AU9"/>
                             <constraint firstAttribute="trailing" secondItem="oIv-rX-Zo7" secondAttribute="trailing" constant="16" id="iYF-dy-1MT"/>
                             <constraint firstItem="hhS-rj-SYW" firstAttribute="leading" secondItem="bHj-hX-83E" secondAttribute="leading" id="mBx-oh-o1a"/>
@@ -69,6 +70,7 @@
                             <mask key="constraints">
                                 <exclude reference="BGt-Td-pZO"/>
                                 <exclude reference="Ceb-Y6-r6A"/>
+                                <exclude reference="GsN-Ot-4tA"/>
                             </mask>
                         </variation>
                     </view>
@@ -378,7 +380,6 @@
                                             <constraint firstAttribute="trailing" secondItem="zt9-wm-xi8" secondAttribute="trailing" id="Dig-h2-XuD"/>
                                             <constraint firstItem="M4B-so-6tC" firstAttribute="leading" secondItem="MLW-8s-MY4" secondAttribute="leading" id="FQH-vE-REk"/>
                                             <constraint firstItem="zt9-wm-xi8" firstAttribute="leading" secondItem="MLW-8s-MY4" secondAttribute="leading" id="VhJ-ZB-fqb"/>
-                                            <constraint firstAttribute="trailing" secondItem="M4B-so-6tC" secondAttribute="trailing" id="X8Z-DW-VcW"/>
                                             <constraint firstItem="zt9-wm-xi8" firstAttribute="top" secondItem="M4B-so-6tC" secondAttribute="bottom" constant="3" id="aiv-9D-R5q"/>
                                             <constraint firstItem="M4B-so-6tC" firstAttribute="top" secondItem="MLW-8s-MY4" secondAttribute="top" id="hwQ-0E-SGf"/>
                                         </constraints>
@@ -542,7 +543,6 @@
                                             <constraint firstItem="Dwy-WU-1Sj" firstAttribute="leading" secondItem="Oui-A8-4PP" secondAttribute="leading" id="3Hh-Cq-WcL"/>
                                             <constraint firstAttribute="trailing" secondItem="Dwy-WU-1Sj" secondAttribute="trailing" id="7fI-qu-pZW"/>
                                             <constraint firstItem="Dwy-WU-1Sj" firstAttribute="top" secondItem="Oui-A8-4PP" secondAttribute="top" id="KIA-m6-zZ4"/>
-                                            <constraint firstItem="ffd-Wh-XqB" firstAttribute="leading" secondItem="FO1-zZ-ZWa" secondAttribute="trailing" constant="112" id="NFd-SW-NNw"/>
                                             <constraint firstItem="9WE-BM-9qJ" firstAttribute="bottom" secondItem="Dwy-WU-1Sj" secondAttribute="bottom" id="POl-tS-W5K"/>
                                             <constraint firstItem="9WE-BM-9qJ" firstAttribute="trailing" secondItem="Dwy-WU-1Sj" secondAttribute="trailing" id="S6H-w6-U08"/>
                                             <constraint firstItem="FO1-zZ-ZWa" firstAttribute="top" secondItem="XEQ-6u-cio" secondAttribute="bottom" constant="10" id="SRa-qb-BEW"/>
@@ -553,11 +553,6 @@
                                             <constraint firstItem="XEQ-6u-cio" firstAttribute="leading" secondItem="Oui-A8-4PP" secondAttribute="leading" constant="13" id="kVS-c4-9T6"/>
                                             <constraint firstItem="FO1-zZ-ZWa" firstAttribute="leading" secondItem="Oui-A8-4PP" secondAttribute="leading" constant="13" id="wVO-Af-vxb"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="NFd-SW-NNw"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R16-yM-jjs">
                                         <rect key="frame" x="0.0" y="234" width="375" height="128"/>
