@@ -37,7 +37,7 @@ class ShowItemCollectionViewCell: UICollectionViewCell {
         if task != nil {
             task?.cancel()
         }
-        showImage.image = UIImage(named: "poster")
+        showImage.image = nil
     }
     
 }

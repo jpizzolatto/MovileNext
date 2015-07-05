@@ -10,8 +10,7 @@ import UIKit
 import TraktModels
 
 class ShowsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
-    @IBOutlet weak var progressLoad: UIActivityIndicatorView!
+    
     @IBOutlet weak var showsView: UICollectionView!
     var refreshControl:UIRefreshControl!
     
@@ -19,17 +18,18 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     var visibleShows : [Show] = []
     var currentPage = 1
     var lastPage : Int?
+    var loadedShows = [Int : [Show]]()
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var emptyView: UIView!
     
     private var userDefaults = NSUserDefaults.standardUserDefaults()
     private let httpClient = TraktHTTPClient()
     private let favManager = FavoritesManager()
+    private let group = dispatch_group_create()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        progressLoad.startAnimating()
         
         let apperance = UIToolbar.appearance()
         apperance.barTintColor = UIColor.mup_orangeColor()
@@ -54,7 +54,12 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
             lastPage = savedLastPage as? Int
         }
         
-        loadShows(currentPage)
+        for index in 1 ... lastPage! {
+            loadShows(index)
+            currentPage = index
+        }
+        
+        groupNotifyToConcatenateShowsList()
     }
     
     deinit {
@@ -95,34 +100,50 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         } 
     }
     
+    func groupNotifyToConcatenateShowsList() -> Void {
+        
+        dispatch_group_notify(group, dispatch_get_main_queue()) { [weak self] in
+            
+            if let s = self, last = s.lastPage {
+                
+                for index in 1 ... last {
+                    s.allShows += s.loadedShows[index]!
+                }
+                // Clean the dictionary
+                s.loadedShows.removeAll(keepCapacity: true)
+                
+                // Update the view
+                s.indexChanged(self!.segmentedControl)
+                s.refreshControl.endRefreshing()
+                s.loadingMore = false
+            }
+        }
+    }
+    
     func refresh(sender:AnyObject) {
         
-        loadingMore = true
         self.allShows.removeAll(keepCapacity: true)
-        self.visibleShows.removeAll(keepCapacity: true)
-        self.showsView.reloadData()
-        currentPage = 1
         
-        loadShows(1)
+        loadingMore = true
+        for index in 1 ... lastPage! {
+            loadShows(index)
+            currentPage = index
+        }
+        
+        groupNotifyToConcatenateShowsList()
     }
     
     private func loadShows(page: Int) {
         
+        dispatch_group_enter(group)
+        
         httpClient.getPopularShows(page, completion: {[weak self] result in
             
             if let shows = result.value {
-                self?.allShows += shows
+                self?.loadedShows[page] = shows
                 
-                if page < self?.lastPage {
-                    self?.currentPage++
-                    let ind = page + 1
-                    self?.loadShows(ind)
-                }
-                else {
-                    self?.indexChanged(self!.segmentedControl)
-                    self?.refreshControl.endRefreshing()
-                    self?.loadingMore = false
-                    self?.progressLoad.stopAnimating()
+                if let s = self {
+                    dispatch_group_leave(s.group)
                 }
             }
         })
@@ -174,6 +195,9 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        self.emptyView.hidden = self.visibleShows.count > 0
+            
         return self.visibleShows.count
     }
     

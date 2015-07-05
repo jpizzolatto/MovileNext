@@ -87,7 +87,21 @@ class DetailShowViewController: UIViewController, SeasonsViewControllerDelegate 
             }
         }
         
+        // Create animation to the button
         let favorited = !sender.selected
+        
+        // create pulse animation
+        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
+        pulseAnimation.duration = 0.4
+        pulseAnimation.fromValue = 1
+        pulseAnimation.toValue = favorited ? 1.2 : 0.8
+        pulseAnimation.autoreverses = true
+        pulseAnimation.repeatCount = 1
+        
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        sender.layer.addAnimation(pulseAnimation, forKey: nil)
+        
+        // Create a transition animation from normal to selected
         UIView.transitionWithView(sender, duration: 0.4, options: .TransitionCrossDissolve, animations: {
             sender.selected = favorited
             }, completion: nil)
