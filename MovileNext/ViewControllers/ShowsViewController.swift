@@ -16,6 +16,7 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     var allShows : [Show] = []
     var visibleShows : [Show] = []
+    
     var currentPage = 1
     var lastPage : Int?
     var loadedShows = [Int : [Show]]()
@@ -45,6 +46,7 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "favoritesChanged", name: favManager.favoritesChangedNotificationName, object: nil)
         
+        // Get the last page already loaded
         let savedLastPage: AnyObject? = userDefaults.objectForKey("lastPage")
         if savedLastPage == nil {
             userDefaults.setInteger(currentPage, forKey: "lastPage")
@@ -172,7 +174,24 @@ class ShowsViewController: UIViewController, UICollectionViewDataSource, UIColle
             
             loadShows(currentPage)
             
-            groupNotifyToConcatenateShowsList()
+            // Insert into the collection view the new shows
+            dispatch_group_notify(group, dispatch_get_main_queue()) { [weak self] in
+                
+                if let s = self {
+                    var indexPaths : [AnyObject] = []
+                    var lastIndex = s.visibleShows.count
+                    for show in s.loadedShows[s.currentPage]! {
+                        s.visibleShows.append(show)
+                        indexPaths.append((NSIndexPath(forItem: lastIndex, inSection: 0) as AnyObject))
+                        lastIndex++
+                    }
+                    s.showsView.insertItemsAtIndexPaths(indexPaths)
+                    s.loadingMore = false
+                    
+                    // Clean the dictionary
+                    s.loadedShows.removeAll(keepCapacity: true)
+                }
+            }
         }
     }
     

@@ -12,7 +12,7 @@ struct Storyboards {
 
         static let identifier = "Main"
 
-        static var storyboard:UIStoryboard {
+        static var storyboard: UIStoryboard {
             return UIStoryboard(name: self.identifier, bundle: nil)
         }
 
@@ -26,7 +26,6 @@ struct Storyboards {
 
         static func instantiateepisodesList() -> EpisodesListViewController! {
             return self.storyboard.instantiateViewControllerWithIdentifier("episodesList") as! EpisodesListViewController
-
         }
     }
 }
@@ -66,12 +65,20 @@ public func ~=<T: SegueProtocol, U: SegueProtocol>(lhs: T, rhs: U) -> Bool {
    return lhs.identifier == rhs.identifier
 }
 
-//MARK: - ReusableProtocol
-public protocol ReusableProtocol: IdentifiableProtocol {
+public func ==<T: SegueProtocol>(lhs: T, rhs: String) -> Bool {
+   return lhs.identifier == rhs
+}
+
+public func ~=<T: SegueProtocol>(lhs: T, rhs: String) -> Bool {
+   return lhs.identifier == rhs
+}
+
+//MARK: - ReusableViewProtocol
+public protocol ReusableViewProtocol: IdentifiableProtocol {
     var viewType: UIView.Type? {get}
 }
 
-public func ==<T: ReusableProtocol, U: ReusableProtocol>(lhs: T, rhs: U) -> Bool {
+public func ==<T: ReusableViewProtocol, U: ReusableViewProtocol>(lhs: T, rhs: U) -> Bool {
    return lhs.identifier == rhs.identifier
 }
 
@@ -79,12 +86,12 @@ public func ==<T: ReusableProtocol, U: ReusableProtocol>(lhs: T, rhs: U) -> Bool
 extension UIStoryboardSegue: SegueProtocol {
 }
 
-extension UICollectionReusableView: ReusableProtocol {
+extension UICollectionReusableView: ReusableViewProtocol {
     public var viewType: UIView.Type? { return self.dynamicType}
     public var identifier: String? { return self.reuseIdentifier}
 }
 
-extension UITableViewCell: ReusableProtocol {
+extension UITableViewCell: ReusableViewProtocol {
     public var viewType: UIView.Type? { return self.dynamicType}
     public var identifier: String? { return self.reuseIdentifier}
 }
@@ -94,59 +101,73 @@ extension UIViewController {
     func performSegue<T: SegueProtocol>(segue: T, sender: AnyObject?) {
        performSegueWithIdentifier(segue.identifier, sender: sender)
     }
-}
 
-//MARK: - UICollectionViewController
-
-extension UICollectionViewController {
-
-    func dequeueReusableCell<T: ReusableProtocol>(reusable: T, forIndexPath: NSIndexPath!) -> AnyObject {
-        return self.collectionView!.dequeueReusableCellWithReuseIdentifier(reusable.identifier!, forIndexPath: forIndexPath)
-    }
-
-    func registerReusable<T: ReusableProtocol>(reusable: T) {
-        if let type = reusable.viewType, identifier = reusable.identifier {
-            self.collectionView?.registerClass(type, forCellWithReuseIdentifier: identifier)
-        }
-    }
-
-    func dequeueReusableSupplementaryViewOfKind<T: ReusableProtocol>(elementKind: String, withReusable reusable: T, forIndexPath: NSIndexPath!) -> AnyObject {
-        return self.collectionView!.dequeueReusableSupplementaryViewOfKind(elementKind, withReuseIdentifier: reusable.identifier!, forIndexPath: forIndexPath)
-    }
-
-    func registerReusable<T: ReusableProtocol>(reusable: T, forSupplementaryViewOfKind elementKind: String) {
-        if let type = reusable.viewType, identifier = reusable.identifier {
-            self.collectionView?.registerClass(type, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: identifier)
-        }
+    func performSegue<T: SegueProtocol>(segue: T) {
+       performSegue(segue, sender: nil)
     }
 }
-//MARK: - UITableViewController
 
-extension UITableViewController {
+//MARK: - UICollectionView
 
-    func dequeueReusableCell<T: ReusableProtocol>(reusable: T, forIndexPath: NSIndexPath!) -> AnyObject {
-        return self.tableView!.dequeueReusableCellWithIdentifier(reusable.identifier!, forIndexPath: forIndexPath)
-    }
+extension UICollectionView {
 
-    func registerReusableCell<T: ReusableProtocol>(reusable: T) {
-        if let type = reusable.viewType, identifier = reusable.identifier {
-            self.tableView?.registerClass(type, forCellReuseIdentifier: identifier)
-        }
-    }
-
-    func dequeueReusableHeaderFooter<T: ReusableProtocol>(reusable: T) -> AnyObject? {
+    func dequeueReusableCell<T: ReusableViewProtocol>(reusable: T, forIndexPath: NSIndexPath!) -> UICollectionViewCell? {
         if let identifier = reusable.identifier {
-            return self.tableView?.dequeueReusableHeaderFooterViewWithIdentifier(identifier)
+            return dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: forIndexPath) as? UICollectionViewCell
         }
         return nil
     }
 
-    func registerReusableHeaderFooter<T: ReusableProtocol>(reusable: T) {
+    func registerReusableCell<T: ReusableViewProtocol>(reusable: T) {
         if let type = reusable.viewType, identifier = reusable.identifier {
-             self.tableView?.registerClass(type, forHeaderFooterViewReuseIdentifier: identifier)
+            registerClass(type, forCellWithReuseIdentifier: identifier)
+        }
+    }
+
+    func dequeueReusableSupplementaryViewOfKind<T: ReusableViewProtocol>(elementKind: String, withReusable reusable: T, forIndexPath: NSIndexPath!) -> UICollectionReusableView? {
+        if let identifier = reusable.identifier {
+            return dequeueReusableSupplementaryViewOfKind(elementKind, withReuseIdentifier: identifier, forIndexPath: forIndexPath) as? UICollectionReusableView
+        }
+        return nil
+    }
+
+    func registerReusable<T: ReusableViewProtocol>(reusable: T, forSupplementaryViewOfKind elementKind: String) {
+        if let type = reusable.viewType, identifier = reusable.identifier {
+            registerClass(type, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: identifier)
         }
     }
 }
+//MARK: - UITableView
+
+extension UITableView {
+
+    func dequeueReusableCell<T: ReusableViewProtocol>(reusable: T, forIndexPath: NSIndexPath!) -> UITableViewCell? {
+        if let identifier = reusable.identifier {
+            return dequeueReusableCellWithIdentifier(identifier, forIndexPath: forIndexPath) as? UITableViewCell
+        }
+        return nil
+    }
+
+    func registerReusableCell<T: ReusableViewProtocol>(reusable: T) {
+        if let type = reusable.viewType, identifier = reusable.identifier {
+            registerClass(type, forCellReuseIdentifier: identifier)
+        }
+    }
+
+    func dequeueReusableHeaderFooter<T: ReusableViewProtocol>(reusable: T) -> UITableViewHeaderFooterView? {
+        if let identifier = reusable.identifier {
+            return dequeueReusableHeaderFooterViewWithIdentifier(identifier) as? UITableViewHeaderFooterView
+        }
+        return nil
+    }
+
+    func registerReusableHeaderFooter<T: ReusableViewProtocol>(reusable: T) {
+        if let type = reusable.viewType, identifier = reusable.identifier {
+             registerClass(type, forHeaderFooterViewReuseIdentifier: identifier)
+        }
+    }
+}
+
 
 //MARK: - EpisodeViewController
 
@@ -192,7 +213,7 @@ extension EpisodesListViewController {
 }
 extension EpisodesListViewController { 
 
-    enum Reusable: String, Printable, ReusableProtocol {
+    enum Reusable: String, Printable, ReusableViewProtocol {
         case EpisodeCell = "EpisodeCell"
 
         var kind: ReusableKind? {
@@ -265,7 +286,7 @@ extension ShowsViewController {
 }
 extension ShowsViewController { 
 
-    enum Reusable: String, Printable, ReusableProtocol {
+    enum Reusable: String, Printable, ReusableViewProtocol {
         case ShowCell = "ShowCell"
 
         var kind: ReusableKind? {
@@ -358,7 +379,7 @@ extension DetailShowViewController {
 //MARK: - SeasonsViewController
 extension SeasonsViewController { 
 
-    enum Reusable: String, Printable, ReusableProtocol {
+    enum Reusable: String, Printable, ReusableViewProtocol {
         case SeasonCell = "SeasonCell"
 
         var kind: ReusableKind? {

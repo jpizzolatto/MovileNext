@@ -28,8 +28,7 @@ private enum Router : URLRequestConvertible {
             switch self {
                 
             case .PopularShows(let page):
-//                let limit = Int(page) * 50
-                return ("shows/popular", ["extended": "images", "limit" : "50", "page" : String(page)], .GET)
+                return ("shows/popular", ["extended": "images", "limit" : "20", "page" : String(page)], .GET)
                 
             case .Show(let id):
                 return ("shows/\(id)", ["extended": "images,full"], .GET)
